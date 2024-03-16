@@ -1,0 +1,15 @@
+Learning::
+C Programming:https://www.youtube.com/watch?v=O3vzpGGZpIE&list=PLdl6zXgLsy3zwNjSMiYlOZOr20sykTfgo
+C++ Basic:https://www.youtube.com/watch?v=yGB9jhsEsr8
+C++ Blog:https://www.programiz.com/cpp-programming
+Starting Of Compititive Programming: https://www.youtube.com/playlist?list=PLoa_roVVsxA2Rqa21grJ4jovQW3kFc3SE
+Compititive Programming Course:https://www.youtube.com/watch?v=OMcxQ3IY-qc&list=PLauivoElc3ggagradg8MfOZreCMmXMmJ-
+Problem Solving::
+beecrowd.com.br(Practice)
+hackerrank.com/dashboard(C++ Practice)
+codechef.com(Practice+Contest)
+atcoder.jp(Contest)
+https://www.hackerearth.com/challenges/ (Practice)
+https://lightoj.com/home (Practice for icpc)
+codeforces.com(Main Website for Compititive Programming)(Practice+Contest)
+Grokking Algorithms: An Illustrated Guide for programmers

@@ -1,0 +1,23 @@
+I would rather answer which suits the general Bangladeshi contests.
+
+a) Moderate programming knowledge, math, geometry, basic data structures.
+
+b)
+1. standard graph algorithms like bfs, dfs, mst, scc, articulation point/bridge, bpm, flow, mcmf etc.
+2. Standard Dynamic programming. In my opinion, Bangladeshis are good at dp. So don't expect easy ones.
+3. Math: Number theory, Counting
+4. Geometry.
+5. Data Structure: Segment tree, Binary indexed tree, double ended queue.
+6. Greedy.
+7. String algos: kmp, suffix array.
+8. Adhoc.
+
+c) I have solved more than 7 problems only once in my contest life (which incidentally happens to be my last contest at BGC trust). In that case, I only needed the algos mentioned in b. I think to achieve c) you need to have more advanced understanding of the algorithms. Thats all. I will name some algo never the less.
+1. FFT
+2. HLD
+3. Advanced geo.
+4. Optimization techniques of dp like convex hull technique, knuth optimization etc.
+
+EDIT (response to zobayer's comment)
+For training:
+depends on where you are. if you are currently not in a) then you should just code, lots and lots of code. from a) to b) learn new algos and solve atleast 5 problems with that algo. from b) to c) keep solving but may be focus on harder problems. lightoj can be very useful for practicing. Important thing is consistency. Build your stamina for 5 hours contest, because trust me, most of us suffer in that.
