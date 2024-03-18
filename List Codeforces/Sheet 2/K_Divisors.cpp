@@ -8,19 +8,13 @@ void yes() { cout << "YES" << endl; }
 void no() { cout << "NO" << endl; }
 int main()
 {
-    ll t;
-    cin >> t;
-    while (t--)
+    ll n;
+    cin >> n;
+    for (ll i = 1; i <= n; i++)
     {
-        ll n, k;
-        cin >> n >> k;
-        if (k >= n - 1)
+        if (n % i == 0)
         {
-            cout << 1 << endl;
-        }
-        else
-        {
-            cout << n << endl;
+            cout << i << endl;
         }
     }
 
