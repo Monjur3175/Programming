@@ -2,6 +2,8 @@
     "files.associations": {
         "random": "c",
         "chrono": "c",
-        "regex": "c"
+        "regex": "c",
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }
