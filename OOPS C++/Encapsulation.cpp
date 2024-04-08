@@ -5,10 +5,34 @@ typedef long long ll;
 
 class Employee
 {
-public://access modifier(public,Private,Protected,Default Private)
+    private:
     string Name;
     string Company;
     ll Age;
+    /*if this data in private access modifier needed to be accessed from outside the class
+    we have to use this getters and setters in public access modifiers*/
+    public:    
+    void setname(string name){//setter
+        Name=name;
+    }
+    string getname(){//getter
+        return Name;
+    }
+    void setcompany(string company){//setter
+        Company=company;
+    }
+    string getcompany(){//getter
+        return Company;
+    }
+    void setage(ll age){//setter
+        if (age>=18)
+        {
+            Age=age;
+        }
+    }
+    ll getage(){//getter
+        return Age;
+    }
     void introduceyourself()//Function
     {
         cout << "NAME- " << Name << endl;
@@ -36,6 +60,8 @@ int main()
     // Employee2.Company="Cuber";
     // Employee2.Age=25;
     Employee2.introduceyourself();
+    Employee1.setage(15);//it will not be taken as a input
+    cout<<Employee1.getname()<<" is "<<Employee1.getage()<<" years old"<<endl;
 
     return 0;
 }

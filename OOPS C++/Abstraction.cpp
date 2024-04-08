@@ -5,7 +5,7 @@ typedef long long ll;
 
 class abstractEmployee{
     virtual void askforpromotion()=0;
-};
+};// This is like UI of Smartphone so the user don't have to worry about the implimentation of the code
 
 class Employee:abstractEmployee
 {
@@ -52,11 +52,11 @@ class Employee:abstractEmployee
     void askforpromotion(){
         if (Age>=30)
         {
-            cout<<Name<<" got Promoted!"<<endl;
+            cout<<Name<<" got Promoted !"<<endl;
         }
         else
         {
-            cout<<Name<<", Sorry!No Promotion for you!!!"<<endl;
+            cout<<Name<<", Sorry! No Promotion for you !!!"<<endl;
         }
         
     }

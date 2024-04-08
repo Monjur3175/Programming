@@ -19,7 +19,7 @@ void no(){cout << "NO" << endl;}
 
 ll countones(ll n)
 {
-    string binary_str = bitset<32>(n).to_string();
+    string binary_str = bitset<32>(n).to_string();;
     int ones_count = 0;
     for (char c : binary_str) {
         if (c == '1') {
