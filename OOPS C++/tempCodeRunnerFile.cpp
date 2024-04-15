@@ -5,7 +5,7 @@ typedef long long ll;
 
 class abstractEmployee{
     virtual void askforpromotion()=0;
-};
+};// This is like UI of Smartphone so the user don't have to worry about the implimentation of the code
 
 class Employee:abstractEmployee
 {
@@ -52,24 +52,31 @@ class Employee:abstractEmployee
     void askforpromotion(){
         if (Age>=30)
         {
-            cout<<Name<<" got Promoted!"<<endl;
+            cout<<Name<<" got Promoted !"<<endl;
         }
         else
         {
-            cout<<Name<<", Sorry!No Promotion for you!!!"<<endl;
+            cout<<Name<<", Sorry! No Promotion for you !!!"<<endl;
         }
         
+    }
+};
+class developer:Employee{//child class
+    public:
+    string Favprogramminglang;
+    developer(string name, string company, ll age,string favprogramminglang)
+    :Employee(name,company,age)
+    {Favprogramminglang=favprogramminglang;}
+    void fixbug(){
+        cout<<getname()<<" Fixed bug using "<<Favprogramminglang<<endl;
     }
 };
 
 int main()
 {
-    Employee Employee1 = Employee("Monjur", "Student", 23);
-    Employee Employee2 = Employee("Morshed", "Cuber", 45);
 
-    Employee1.askforpromotion();
-    Employee2.askforpromotion();
+    developer d=developer("Monjur","Xavier",39,"C++");
 
     return 0;
 }
-/*This is the method where complex logic must be hidden to show the simple logic to the user,like smartphones where codes are hidden and UI is shown to the user*/
+/*Here a child class inherits from the base/super/parent class which has it's own charactaristics*/

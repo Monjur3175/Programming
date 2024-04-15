@@ -10,11 +10,10 @@ class abstractEmployee{
 class Employee:abstractEmployee
 {
     private:
-    string Name;
     string Company;
     ll Age;
-    /*if this data in private access modifier needed to be accessed from outside the class
-    we have to use this getters and setters in public access modifiers*/
+    protected:
+    string Name;//in this protected a.m. we can access it's Properties from derived class or child class
     public:    
     void setname(string name){//setter
         Name=name;
@@ -61,19 +60,40 @@ class Employee:abstractEmployee
         
     }
 };
-class developer:Employee{
+class developer:public Employee{//child class
     public:
-    string Favprogramminglang();
-    developer(string name, string company, ll age,string favprogramminglang){}
+    string Favprogramminglang;
+    developer(string name, string company, ll age,string favprogramminglang)
+    :Employee(name,company,age)
+    {Favprogramminglang=favprogramminglang;}
+    // void fixbug(){
+    // cout<<getname()<<" Fixed bug using "<<Favprogramminglang<<endl;
+    // }
+    void fixbug(){
+        cout<<Name<<" Fixed bug using "<<Favprogramminglang<<endl;
+    }
 };
-
+class teacher:public Employee{//another child class
+    public:
+    string Subject;
+    void preparelesson(){
+        cout<<Name<<" is preparing "<<Subject<<" Lesson"<<endl;
+    }
+    teacher(string name, string company, ll age,string subject)
+    :Employee(name,company,age)
+    {
+        Subject=subject;
+    }
+};
 int main()
 {
-    Employee Employee1 = Employee("Monjur", "Student", 23);
-    Employee Employee2 = Employee("Morshed", "Cuber", 45);
 
-    developer d;
-
+    developer d=developer("Monjur","Xavier",39,"C++");
+    teacher t=teacher("Jahangir","RCS",40,"History");
+    //d.fixbug();
+    //d.askforpromotion();
+    t.preparelesson();
+    t.askforpromotion();
     return 0;
 }
-/*This is the method where complex logic must be hidden to show the simple logic to the user,like smartphones where codes are hidden and UI is shown to the user*/
+/*Here a child class inherits from the base/super/parent class which has it's own charactaristics*/
