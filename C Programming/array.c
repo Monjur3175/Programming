@@ -7,11 +7,11 @@ int main()
 
     for (int i = 0; i < 10; i++)
     {
-        scanf("%d\n",a[i]);
+        scanf("%d\n",&a[i]);
     }
     for (int i = 0; i < 10; i++)
     {
-        printf("The array elements are a[%d]=%d",i,a[i]);
+        printf("The array elements are a[%d]=%d\n",i,a[i]);
     }
     
     
