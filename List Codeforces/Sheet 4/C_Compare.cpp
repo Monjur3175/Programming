@@ -14,6 +14,7 @@ typedef vector<double> vd;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 const ll p = 2e5 + 10;
+const ll PI=3.14159;
 ll w[p];
 void yes(){cout << "YES" << endl;}
 void no(){cout << "NO" << endl;}
