@@ -22,14 +22,11 @@ void solution()
 {
     ll x, y;
     cin >> x >> y;
-    if (x + y > 6)
+    if (x > y)
     {
-        yes();
+        swap(x, y);
     }
-    else
-    {
-        no();
-    }
+    cout << x << " " << y << endl;
 }
 
 int main()

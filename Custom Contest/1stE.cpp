@@ -20,15 +20,16 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll x, y;
-    cin >> x >> y;
-    if (x + y > 6)
+    string s;
+    cin >> s;
+    ll x = s.size();
+    if (s.size() <= 10)
     {
-        yes();
+        cout << s << endl;
     }
     else
     {
-        no();
+        cout << s[0] << s.size() - 2 << s[x - 1] << endl;
     }
 }
 

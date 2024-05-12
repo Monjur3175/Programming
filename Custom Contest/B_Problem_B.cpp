@@ -15,20 +15,21 @@ typedef pair<ll, ll> pll;
 typedef long long ll;
 const ll p = 2e5 + 10;
 ll w[p];
-void yes() { cout << "YES" << endl; }
-void no() { cout << "NO" << endl; }
+void yes() { cout << "Yes" << endl; }
+void no() { cout << "No" << endl; }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll n;
-    cin >> n;
-    for (ll i = 1; i <= n; i++)
+    ll x, y;
+    cin >> x >> y;
+    if (x >= y * 2)
     {
-        if (n % i == 0)
-        {
-            cout << i << endl;
-        }
+        yes();
+    }
+    else
+    {
+        no();
     }
 
     return 0;

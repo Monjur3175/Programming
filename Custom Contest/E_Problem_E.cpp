@@ -1,47 +1,53 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <sstream>
 
-#define INF INT_MAX
-#define MOD 1000000007
-#define pb push_back
-#define all(x) x.begin(), x.end()
-#define rall(x) x.rbegin(), x.rend()
-
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef vector<double> vd;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-const ll p = 2e5 + 10;
-ll w[p];
-void yes() { cout << "YES" << endl; }
-void no() { cout << "NO" << endl; }
-
-void solution()
+bool isPrime(int num)
 {
-    string s;
-    cin >> s;
-    ll x = s.size();
-    if (s.size() <= 10)
+    if (num <= 1)
+        return false;
+    for (int i = 2; i <= sqrt(num); ++i)
     {
-        cout << s << endl;
+        if (num % i == 0)
+            return false;
     }
-    else
+    return true;
+}
+
+std::vector<int> generatePrimes(int start, int end)
+{
+    std::vector<int> primes;
+    for (int num = start; num <= end; ++num)
     {
-        cout << s[0] << s.size() - 2 << s[x - 1] << endl;
+        if (isPrime(num))
+            primes.push_back(num);
     }
+    return primes;
 }
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t = 1;
-    cin >> t;
-    while (t--)
+    std::string input1 = "1 10";
+    std::string input2 = "3 5";
+
+    std::istringstream stream1(input1), stream2(input2);
+    int start1, end1, start2, end2;
+    stream1 >> start1 >> end1;
+    stream2 >> start2 >> end2;
+
+    std::vector<int> primes1 = generatePrimes(start1, end1);
+    std::vector<int> primes2 = generatePrimes(start2, end2);
+
+    for (int prime : primes1)
     {
-        solution();
+        std::cout << prime << std::endl;
     }
+    std::cout << std::endl;
+    for (int prime : primes2)
+    {
+        std::cout << prime << std::endl;
+    }
+
     return 0;
 }

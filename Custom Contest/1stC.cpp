@@ -20,9 +20,9 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll x, y;
-    cin >> x >> y;
-    if (x + y > 6)
+    ll x;
+    cin >> x;
+    if (x <= 10)
     {
         yes();
     }

@@ -20,15 +20,28 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll x, y;
-    cin >> x >> y;
-    if (x + y > 6)
+    string s;
+    ll x = 0;
+    cin >> s;
+    for (ll i = 0; i < s.size() - 1; i++)
     {
-        yes();
+        if (s[i] == s[i + 1])
+        {
+            x++;
+        }
+        if (s[i] != s[i + 1])
+        {
+            swap(s[i], s[i + 1]);
+        }
     }
-    else
+    if (x == s.size() - 1)
     {
         no();
+    }
+    else if (x != s.size())
+    {
+        yes();
+        cout << s << endl;
     }
 }
 

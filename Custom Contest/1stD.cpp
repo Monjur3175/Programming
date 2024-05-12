@@ -9,20 +9,21 @@ using namespace std;
 
 typedef long long ll;
 typedef vector<int> vi;
-typedef vector<ll> vll;
 typedef vector<double> vd;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
+typedef long long ll;
 const ll p = 2e5 + 10;
 ll w[p];
-void yes() { cout << "YES" << endl; }
-void no() { cout << "NO" << endl; }
-
-void solution()
+void yes() { cout << "Yes" << endl; }
+void no() { cout << "No" << endl; }
+int main()
 {
-    ll x, y;
-    cin >> x >> y;
-    if (x + y > 6)
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll a, b;
+    cin >> a >> b;
+    if (a + b + (a * b) == 111)
     {
         yes();
     }
@@ -30,17 +31,20 @@ void solution()
     {
         no();
     }
-}
 
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        solution();
+    return 0;
+}
+#include <stdio.h>
+int main() {
+    int a,b;
+    scanf("%d %d",&a,&b);
+    
+    if(a+b+(a*b)==111){
+        printf("YES\n");
     }
+    else{
+        printf("NO\n");
+    }
+
     return 0;
 }

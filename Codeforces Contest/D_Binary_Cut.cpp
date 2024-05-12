@@ -20,16 +20,23 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll x, y;
-    cin >> x >> y;
-    if (x + y > 6)
+    string s;
+    cin >> s;
+    ll x = 0, y = 0;
+    for (ll i = 0; i < s.size() - 1; i++)
     {
-        yes();
+        if (s[i] == '1' && s[i + 1] == '0')
+        {
+            x++;
+            y++;
+        }
+        if (s[i] == '0' && s[i + 1] == '1')
+        {
+            y++;
+        }
     }
-    else
-    {
-        no();
-    }
+
+    cout << max(x + 1, y) << endl;
 }
 
 int main()
