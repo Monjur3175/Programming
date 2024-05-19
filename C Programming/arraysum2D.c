@@ -8,19 +8,32 @@ int main()
         for (int j = 0; j < 3; j++)
         {
             scanf("%d",&a[i][j]);
-            printf("%2d",a[i][j]);
-            printf("\n");
         }
     }
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+    
     printf("Matrix b:\n");
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
-            scanf("%d",&b[i][j]);
-            printf("%2d",b[i][j]);
-            printf("\n");
+            scanf("%d",&b[i][j]);  
         }
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%d ",b[i][j]);
+        }
+        printf("\n");
     }
     printf("Sum d:\n");
     for (int i = 0; i < 3; i++)
@@ -28,7 +41,7 @@ int main()
         for (int j = 0; j < 3; j++)
         {
             c[i][j]=a[i][j]+b[i][j];
-            printf("%4d",c[i][j]);
+            printf("%d ",c[i][j]);
         }
         printf("\n");
     }
