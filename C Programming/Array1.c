@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main()
 {
     int n;
@@ -18,7 +19,7 @@ int main()
         sum = sum + a[i];//sum+=a[i];
     }
     printf("Sum of the Array Elements=%d\n", sum);
-    float avg = sum / n;
+    float avg = sum / (float)n;
     printf("Avrage of the element=%.3f\n", avg);
     return 0;
 }

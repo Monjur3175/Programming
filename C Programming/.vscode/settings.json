@@ -4,6 +4,7 @@
         "chrono": "c",
         "regex": "c",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "CLASS.C": "cpp"
     }
 }
