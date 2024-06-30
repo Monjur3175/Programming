@@ -8,12 +8,12 @@ int main()
 {
     string s;
     cin >> s;
-    string n1 = s;
+    string s1 = s;
     reverse(s.begin(), s.end());
 
-    if (s == n1)
+    if (s == s1)
     {
-        cout << n1 << endl;
+        cout << s1 << endl;
         yes();
     }
     else
