@@ -1,19 +1,8 @@
 #include <stdio.h>
 
-int main()
-{
-    int x,a[10];
-   printf("Enter array elements\n");
-
-    for (int i = 0; i < 10; i++)
-    {
-        scanf("%d\n",a[i]);
-    }
-    for (int i = 0; i < 10; i++)
-    {
-        printf("The array elements are a[%d]=%d",i,a[i]);
-    }
-    
-    
+int main() {
+    int x;
+    x=10;
+    printf("%d",x);
     return 0;
 }
