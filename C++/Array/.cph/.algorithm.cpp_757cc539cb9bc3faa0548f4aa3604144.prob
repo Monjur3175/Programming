@@ -1,0 +1,1 @@
+{"name":"Local: algorithm","url":"d:\\Programming\\C++\\Array\\algorithm.cpp","tests":[{"id":1722745030262,"input":"5\n2 4 9 5 1","output":"Min:1     \nMax:9     \nSum:21    \nCount:1   \nFound:5   \nReversed  \n1 5 9 4 2 "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Programming\\C++\\Array\\algorithm.cpp","group":"local","local":true}

@@ -1,0 +1,45 @@
+pwd
+ls
+ls-a
+ls -al
+ls -l
+ll
+cd ./Documents
+cd ..
+cd -
+mkdir new
+touch hello.txt
+nano hello.txt
+cat hello.txt
+vi fun.txt
+:wq
+rm fun.txt
+rm -rf *
+cd..
+rmdir new
+cd fun/
+ls
+touch fun.txt
+ls
+mv fun.txt ../desktop/
+cp dun.txt ../fun/
+
+uname
+uname -r
+uname -a
+whoami
+sudo su
+touch hello.txt
+exit
+
+sudo apt install docker
+chmod(change permission)
+
+history
+echo "Hello World"
+cal
+bc
+
+sudo apt update
+sudo apt install tree
+tree

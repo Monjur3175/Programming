@@ -1,0 +1,1 @@
+{"name":"Local: Map","url":"d:\\Programming\\C++\\Array\\Map.cpp","tests":[{"id":1722658926795,"input":"3\n2 b\n1 a\n3 c\n1 a","output":"1 a\n2 b\n3 c"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Programming\\C++\\Array\\Map.cpp","group":"local","local":true}

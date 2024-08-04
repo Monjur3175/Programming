@@ -1,0 +1,1 @@
+{"name":"Local: Vector","url":"d:\\Programming\\C++\\Array\\Vector.cpp","tests":[{"id":1722647241225,"input":"3\n3\n1 2 3\n3\n4 5 6\n2\n1 2","output":"3\n1 2 3\n3\n4 5 6\n2\n1 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Programming\\C++\\Array\\Vector.cpp","group":"local","local":true}
