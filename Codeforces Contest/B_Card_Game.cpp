@@ -63,25 +63,13 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll a, b, c, d, cnt = 0;
+    ll a, b, c, d, ans = 0;
     cin >> a >> b >> c >> d;
-    if (a >= c && b > d)
-    {
-        cnt++;
-    }
-    if (b >= d && a > c)
-    {
-        cnt++;
-    }
-    if (a >= d && b > c)
-    {
-        cnt++;
-    }
-    if (b >= c && a > d)
-    {
-        cnt++;
-    }
-    cout << cnt << endl;
+    if (a >= c && b > d || a > c && b >= d)
+        ans++;
+    if (a >= d && b > c || a > d && b >= c)
+        ans++;
+    cout << ans * 2 << endl;
 }
 
 int main()
