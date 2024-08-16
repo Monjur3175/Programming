@@ -10,25 +10,17 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll s;
-    cin >> s;
-    ll n = s;
-    while (s > 100)
-    {
-        s = s / 10;
-    }
-    cout<<s<<endl;
-    n = n % 100;
-    if (s > 10 || n == 1)
-    {
-        no();
-    }
-    else
+    string x;
+    cin >> x;
+    if (x[0] == '1' && x[1] == '0' && (x[2] > 49 || (x[2] > 48 && x[3])))
     {
         yes();
     }
+    else
+    {
+        no();
+    }
 }
-
 int main()
 {
     Monjur_Morshed;

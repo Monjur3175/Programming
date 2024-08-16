@@ -63,21 +63,22 @@ void no() { cout << "NO" << endl; }
 
 void solution()
 {
-    ll n, t = 0;
-    cin >> n;
-    vll v(n + 2, 0);
-    string s = "YES";
-    for (ll i = 1; i <= n; i++)
+    ll a;
+    cin >> a;
+    ll v[a];
+    for (ll i = 1; i <= a; i++)
     {
-        int x;
-        cin >> x;
-        v[x] = 1;
-        if (v[x - 1] == 0 && v[x + 1] == 0 && i != 1)
-        {
-            s = "NO";
-        }
+        cin >> v[i];
     }
-    cout << s << endl;
+
+    if (a == 2 && v[2] - v[1] >= 2)
+    {
+        yes();
+    }
+    else
+    {
+        no();
+    }
 }
 
 int main()
