@@ -11,7 +11,7 @@ int main()
         return 1;
     }
     printf("Enter your name: ");
-    fgets(name,sizeof(name),stdin);
+    scanf("%s",name);
     printf("Enter your Roll: ");
     scanf("%d",&roll);
     fprintf(file,"Name: %s",name);
