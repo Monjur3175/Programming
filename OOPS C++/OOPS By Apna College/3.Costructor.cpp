@@ -13,7 +13,6 @@ class teacher{
         dept="ICE";
     }
 };
-
 int main()
 {
     teacher t1;//Constructor called Automatically

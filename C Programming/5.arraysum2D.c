@@ -10,6 +10,7 @@ int main()
             scanf("%d",&a[i][j]);
         }
     }
+    printf("The array a is:\n");
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
@@ -18,15 +19,16 @@ int main()
         }
         printf("\n");
     }
-    
+
     printf("Matrix b:\n");
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
-            scanf("%d",&b[i][j]);  
+            scanf("%d",&b[i][j]);
         }
     }
+    printf("The array b is:\n");
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
