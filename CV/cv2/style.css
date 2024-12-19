@@ -129,7 +129,7 @@ h2 {
 
 .profiles-grid a {
     display: block;
-    background-color: #e0e0e0;
+    background-color: #b9b6b6;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -139,7 +139,7 @@ h2 {
 }
 
 .profiles-grid a:hover {
-    background-color: #ddd;
+    background-color: #595959;
 }
 
 footer {
