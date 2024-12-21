@@ -1,0 +1,15 @@
+D:
+
+cd "Programming\OOPS Project"
+
+g++ CGPACalculator.cpp -o CGPACalculator.exe
+
+--------------------------------------------
+
+IDI_ICON1 ICON "icon.ico"
+
+resources.rc
+
+windres resources.rc -O coff -o resources.res
+
+g++ CGPACalculator.cpp resources.res -o CGPACalculator.exe

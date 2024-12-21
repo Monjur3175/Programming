@@ -1,0 +1,5 @@
+Student Name: Monjur
+Roll Number: 220601
+Current Semester: 1
+Semester 1 CGPA: 3 (Credits: 6)
+Overall CGPA: 3
