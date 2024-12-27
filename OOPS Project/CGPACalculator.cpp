@@ -11,9 +11,9 @@ private:
     int currentSemester;
     vector<int> numSubjects;
     vector<vector<float>> subjectGrades;
-    vector<vector<int>> subjectCredits;
+    vector<vector<float>> subjectCredits;
     vector<float> semesterCGPA;
-    vector<int> semesterCredits;
+    vector<float> semesterCredits;
 
 public:
     void displayTitleAndInstructions()
