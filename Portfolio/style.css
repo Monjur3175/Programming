@@ -178,3 +178,15 @@ footer {
     }
     /* More print-specific styles */
 }
+.xcard {
+    background-color: #e7e7e7;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.xcard:hover {
+    background-color: #c7c7c7;
+}
