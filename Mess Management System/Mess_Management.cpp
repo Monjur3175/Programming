@@ -5,7 +5,6 @@
 #include <windows.h>
 using namespace std;
 
-// Class declarations
 class User
 {
 public:
@@ -20,10 +19,12 @@ class Member
 public:
     string name, contact;
     int id, meal_count;
+    double investment;
 
     void addMember();
     void viewMembers();
     void removeMember();
+    void addInvestment();
 };
 
 class Expense
@@ -55,9 +56,9 @@ public:
     vector<Meal> meals;
 
     void calculateBill();
+    void manageMemberExpense();
 };
 
-// User class method definitions
 bool User::login()
 {
     string inputUsername, inputPassword;
@@ -105,7 +106,6 @@ void User::registerUser()
     cout << "Registration successful!\n";
 }
 
-// Member class method definitions
 void Member::addMember()
 {
     Member newMember;
@@ -117,6 +117,7 @@ void Member::addMember()
     cout << "Enter contact: ";
     cin >> newMember.contact;
     newMember.meal_count = 0;
+    newMember.investment = 0.0;
 
     ofstream file("members.txt", ios::app);
     if (!file)
@@ -125,7 +126,7 @@ void Member::addMember()
         return;
     }
 
-    file << newMember.id << " " << newMember.name << " " << newMember.contact << " " << newMember.meal_count << "\n";
+    file << newMember.id << " " << newMember.name << " " << newMember.contact << " " << newMember.meal_count << " " << newMember.investment << "\n";
     file.close();
     cout << "Member added successfully!\n";
 }
@@ -141,9 +142,9 @@ void Member::viewMembers()
 
     cout << "\n--- Member List ---\n";
     Member member;
-    while (file >> member.id >> member.name >> member.contact >> member.meal_count)
+    while (file >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
     {
-        cout << "ID: " << member.id << ", Name: " << member.name << ", Contact: " << member.contact << ", Meals: " << member.meal_count << "\n";
+        cout << "ID: " << member.id << ", Name: " << member.name << ", Contact: " << member.contact << ", Meals: " << member.meal_count << ", Investment: " << member.investment << "\n";
     }
     file.close();
 }
@@ -164,11 +165,11 @@ void Member::removeMember()
 
     Member member;
     bool found = false;
-    while (file >> member.id >> member.name >> member.contact >> member.meal_count)
+    while (file >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
     {
         if (member.id != idToRemove)
         {
-            tempFile << member.id << " " << member.name << " " << member.contact << " " << member.meal_count << "\n";
+            tempFile << member.id << " " << member.name << " " << member.contact << " " << member.meal_count << " " << member.investment << "\n";
         }
         else
         {
@@ -192,7 +193,51 @@ void Member::removeMember()
     }
 }
 
-// Expense class method definitions
+void Member::addInvestment()
+{
+    int memberID;
+    double investmentAmount;
+    cout << "Enter member ID: ";
+    cin >> memberID;
+    cout << "Enter investment amount: ";
+    cin >> investmentAmount;
+
+    ifstream file("members.txt");
+    ofstream tempFile("temp.txt");
+    if (!file || !tempFile)
+    {
+        cout << "Error: Unable to open member data file.\n";
+        return;
+    }
+
+    Member member;
+    bool found = false;
+    while (file >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
+    {
+        if (member.id == memberID)
+        {
+            member.investment += investmentAmount;
+            found = true;
+        }
+        tempFile << member.id << " " << member.name << " " << member.contact << " " << member.meal_count << " " << member.investment << "\n";
+    }
+
+    file.close();
+    tempFile.close();
+
+    remove("members.txt");
+    rename("temp.txt", "members.txt");
+
+    if (found)
+    {
+        cout << "Investment added successfully!\n";
+    }
+    else
+    {
+        cout << "Member not found.\n";
+    }
+}
+
 void Expense::addExpense()
 {
     Expense newExpense;
@@ -236,7 +281,6 @@ void Expense::viewExpenses()
     file.close();
 }
 
-// Meal class method definitions
 void Meal::addMeal()
 {
     Meal newMeal;
@@ -277,13 +321,11 @@ void Meal::viewMeals()
     file.close();
 }
 
-// MessSystem class method definitions
 void MessSystem::calculateBill()
 {
     double totalExpenses = 0;
     int totalMeals = 0;
 
-    // Calculate total expenses
     ifstream expenseFile("expenses.txt");
     if (!expenseFile)
     {
@@ -299,7 +341,6 @@ void MessSystem::calculateBill()
     }
     expenseFile.close();
 
-    // Calculate total meals
     ifstream mealFile("meals.txt");
     if (!mealFile)
     {
@@ -322,7 +363,6 @@ void MessSystem::calculateBill()
     double mealRate = totalExpenses / totalMeals;
     cout << "\nMeal Rate: " << mealRate << "\n";
 
-    // Calculate and display bills for each member
     ifstream memberFile("members.txt");
     if (!memberFile)
     {
@@ -331,18 +371,81 @@ void MessSystem::calculateBill()
     }
     Member member;
     cout << "\n--- Member Bills ---\n";
-    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count)
+    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
     {
         double bill = member.meal_count * mealRate;
         cout << "Member ID: " << member.id << ", Name: " << member.name << ", Bill: " << bill << "\n";
     }
     memberFile.close();
 }
+
+void MessSystem::manageMemberExpense()
+{
+    double totalExpenses = 0;
+    int totalMeals = 0;
+
+    ifstream expenseFile("expenses.txt");
+    if (!expenseFile)
+    {
+        cout << "Error: Unable to open expense data file.\n";
+        return;
+    }
+    Expense expense;
+    while (expenseFile >> expense.date >> ws)
+    {
+        getline(expenseFile, expense.description, ' ');
+        expenseFile >> expense.amount;
+        totalExpenses += expense.amount;
+    }
+    expenseFile.close();
+
+    ifstream mealFile("meals.txt");
+    if (!mealFile)
+    {
+        cout << "Error: Unable to open meal data file.\n";
+        return;
+    }
+    Meal meal;
+    while (mealFile >> meal.member_id >> meal.date >> meal.meals)
+    {
+        totalMeals += meal.meals;
+    }
+    mealFile.close();
+
+    if (totalMeals == 0)
+    {
+        cout << "No meals recorded. Unable to calculate member expenses.\n";
+        return;
+    }
+
+    double mealRate = totalExpenses / totalMeals;
+
+    ifstream memberFile("members.txt");
+    if (!memberFile)
+    {
+        cout << "Error: Unable to open member data file.\n";
+        return;
+    }
+    Member member;
+    cout << "\n--- Member Net Expenses ---\n";
+    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
+    {
+        double totalBill = member.meal_count * mealRate;
+        double netExpense = totalBill - member.investment;
+        cout << "Member ID: " << member.id << ", Name: " << member.name << ", Total Bill: " << totalBill << ", Investment: " << member.investment << ", Net Expense: " << netExpense << "\n";
+    }
+    memberFile.close();
+}
+
 void clearScreen()
 {
     system("cls");
 }
-// Main menu
+void clearScreenWithDelay(int milliseconds)
+{
+    Sleep(milliseconds);
+}
+
 void mainMenu()
 {
     int choice;
@@ -351,9 +454,21 @@ void mainMenu()
 
     while (true)
     {
-        cout << "\n--- Mess Management System ---\n";
-        cout << "1. Login\n2. Register\n3. Manage Members\n4. Manage Expenses\n5. Manage Meals\n6. Calculate Bills\n7. Exit\n";
-        cout << "Enter your choice: ";
+        cout << "\n--- Mess Management System ---\n"
+             << "1. Login\n"
+             << "2. Register\n"
+             << "3. Add Member\n"
+             << "4. View Members\n"
+             << "5. Remove Member\n"
+             << "6. Add Investment\n"
+             << "7. Add Expense\n"
+             << "8. View Expenses\n"
+             << "9. Add Meal\n"
+             << "10. View Meals\n"
+             << "11. Calculate Bill\n"
+             << "12. Manage Member Expense\n"
+             << "13. Exit\n"
+             << "Enter your choice: ";
         cin >> choice;
 
         switch (choice)
@@ -362,138 +477,123 @@ void mainMenu()
             if (user.login())
             {
                 cout << "Login successful!\n";
-                // Proceed to mess management menu (to be implemented)
             }
             else
             {
-                cout << "Invalid username or password.\n";
+                cout << "Login failed. Try again.\n";
             }
+            clearScreenWithDelay(3000);
             clearScreen();
             break;
 
         case 2:
             user.registerUser();
+            clearScreenWithDelay(3000);
             clearScreen();
             break;
+
         case 3:
         {
-            int memberChoice;
             Member member;
-            while (true)
-            {
-                cout << "\n--- Member Management ---\n";
-                cout << "1. Add Member\n2. View Members\n3. Remove Member\n4. Back to Main Menu\n";
-                cout << "Enter your choice: ";
-                cin >> memberChoice;
-
-                switch (memberChoice)
-                {
-                case 1:
-                    member.addMember();
-                    break;
-                case 2:
-                    member.viewMembers();
-                    break;
-                case 3:
-                    member.removeMember();
-                    break;
-                case 4:
-                    break;
-                default:
-                    cout << "Invalid choice. Try again.\n";
-                }
-                if (memberChoice==4)
-                {
-                    break;
-                }
-            }
+            member.addMember();
+            clearScreenWithDelay(3000);
             clearScreen();
             break;
         }
+
         case 4:
         {
-            int expenseChoice;
-            Expense expense;
-            while (true)
-            {
-                cout << "\n--- Expense Management ---\n";
-                cout << "1. Add Expense\n2. View Expenses\n3. Back to Main Menu\n";
-                cout << "Enter your choice: ";
-                cin >> expenseChoice;
-
-                switch (expenseChoice)
-                {
-                case 1:
-                    expense.addExpense();
-                    break;
-                case 2:
-                    expense.viewExpenses();
-                    break;
-                case 3:
-                    break;
-                default:
-                    cout << "Invalid choice. Try again.\n";
-                }
-                if (expenseChoice==3)
-                {
-                    break;
-                }
-            }
+            Member member;
+            member.viewMembers();
+            clearScreenWithDelay(10000);
             clearScreen();
             break;
         }
+
         case 5:
         {
-            int mealChoice;
-            Meal meal;
-            while (true)
-            {
-                cout << "\n--- Meal Management ---\n";
-                cout << "1. Add Meal\n2. View Meals\n3. Back to Main Menu\n";
-                cout << "Enter your choice: ";
-                cin >> mealChoice;
-
-                switch (mealChoice)
-                {
-                case 1:
-                    meal.addMeal();
-                    break;
-                case 2:
-                    meal.viewMeals();
-                    break;
-                case 3:
-                    break;
-                default:
-                    cout << "Invalid choice. Try again.\n";
-                }
-                if (mealChoice == 3)
-                {
-                    break;
-                }
-            }
+            Member member;
+            member.removeMember();
+            clearScreenWithDelay(3000);
             clearScreen();
             break;
         }
+
         case 6:
-            messSystem.calculateBill();
+        {
+            Member member;
+            member.addInvestment();
+            clearScreenWithDelay(3000);
             clearScreen();
             break;
+        }
+
         case 7:
-            cout << "Exiting...\n";
+        {
+            Expense expense;
+            expense.addExpense();
+            clearScreenWithDelay(3000);
+            clearScreen();
+            break;
+        }
+
+        case 8:
+        {
+            Expense expense;
+            expense.viewExpenses();
+            clearScreenWithDelay(10000);
+            clearScreen();
+            break;
+        }
+
+        case 9:
+        {
+            Meal meal;
+            meal.addMeal();
+            clearScreenWithDelay(3000);
+            clearScreen();
+            break;
+        }
+
+        case 10:
+        {
+            Meal meal;
+            meal.viewMeals();
+            clearScreenWithDelay(10000);
+            clearScreen();
+            break;
+        }
+
+        case 11:
+            messSystem.calculateBill();
+            clearScreenWithDelay(10000);
+            clearScreen();
+            break;
+
+        case 12:
+            messSystem.manageMemberExpense();
+            clearScreenWithDelay(10000);
+            clearScreen();
+            break;
+
+        case 13:
+            cout << "Exiting the system. Goodbye!\n";
+            clearScreenWithDelay(3000);
             clearScreen();
             return;
+
         default:
-            cout << "Invalid choice. Try again.\n";
+            cout << "Invalid choice. Please try again.\n";
+            clearScreenWithDelay(3000);
             clearScreen();
         }
     }
 }
 
-// Entry point
 int main()
 {
-    cout << "Please Read the User Manual \'User manual.txt\' before use this mess management system" << endl;
+    cout<<"Please Read the user manual \'User Manual.pdf\' before using this Mess Management System"<<endl;
     mainMenu();
-    system("pause");
+    system("Pause");
     return 0;
 }
