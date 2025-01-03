@@ -2,11 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <iomanip>
 #include <windows.h>
 using namespace std;
-
-bool isLoggedIn = false;
 
 class User
 {
@@ -83,7 +80,6 @@ bool User::login()
         if (storedUsername == inputUsername && storedPassword == inputPassword)
         {
             file.close();
-            isLoggedIn = true;
             return true;
         }
     }
@@ -107,7 +103,7 @@ void User::registerUser()
 
     file << username << " " << password << "\n";
     file.close();
-    cout << "Registration successful!!!!!\n";
+    cout << "Registration successful!\n";
 }
 
 void Member::addMember()
@@ -132,7 +128,7 @@ void Member::addMember()
 
     file << newMember.id << " " << newMember.name << " " << newMember.contact << " " << newMember.meal_count << " " << newMember.investment << "\n";
     file.close();
-    cout << "Member added successfully!!!!!\n";
+    cout << "Member added successfully!\n";
 }
 
 void Member::viewMembers()
@@ -189,7 +185,7 @@ void Member::removeMember()
 
     if (found)
     {
-        cout << "Member removed successfully!!!!\n";
+        cout << "Member removed successfully!\n";
     }
     else
     {
@@ -234,7 +230,7 @@ void Member::addInvestment()
 
     if (found)
     {
-        cout << "Investment added successfully!!!\n";
+        cout << "Investment added successfully!\n";
     }
     else
     {
@@ -262,7 +258,7 @@ void Expense::addExpense()
 
     file << newExpense.date << " " << newExpense.description << " " << newExpense.amount << "\n";
     file.close();
-    cout << "Expense added successfully!!!!\n";
+    cout << "Expense added successfully!\n";
 }
 
 void Expense::viewExpenses()
@@ -285,7 +281,8 @@ void Expense::viewExpenses()
     file.close();
 }
 
-void Meal::addMeal() {
+void Meal::addMeal()
+{
     Meal newMeal;
     cout << "Enter member ID: ";
     cin >> newMeal.member_id;
@@ -295,7 +292,8 @@ void Meal::addMeal() {
     cin >> newMeal.meals;
 
     ofstream file("meals.txt", ios::app);
-    if (!file) {
+    if (!file)
+    {
         cout << "Error: Unable to open meal data file.\n";
         return;
     }
@@ -303,34 +301,7 @@ void Meal::addMeal() {
     file << newMeal.member_id << " " << newMeal.date << " " << newMeal.meals << "\n";
     file.close();
     cout << "Meal added successfully!\n";
-
-    ifstream memberFile("members.txt");
-    ofstream tempFile("temp.txt");
-    if (!memberFile || !tempFile) {
-        cout << "Error: Unable to update member meal count.\n";
-        return;
-    }
-
-    Member member;
-    bool found = false;
-    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment) {
-        if (member.id == newMeal.member_id) {
-            member.meal_count += newMeal.meals;
-            found = true;
-        }
-        tempFile << member.id << " " << member.name << " " << member.contact << " " << member.meal_count << " " << member.investment << "\n";
-    }
-
-    memberFile.close();
-    tempFile.close();
-    remove("members.txt");
-    rename("temp.txt", "members.txt");
-
-    if (!found) {
-        cout << "Member ID not found. Meal count not updated.\n";
-    }
 }
-
 
 void Meal::viewMeals()
 {
@@ -350,20 +321,17 @@ void Meal::viewMeals()
     file.close();
 }
 
-void MessSystem::calculateBill()
-{
+void MessSystem::calculateBill() {
     double totalExpenses = 0;
     int totalMeals = 0;
 
     ifstream expenseFile("expenses.txt");
-    if (!expenseFile)
-    {
+    if (!expenseFile) {
         cout << "Error opening expenses.txt" << endl;
         return;
     }
     Expense expense;
-    while (expenseFile >> expense.date >> ws)
-    {
+    while (expenseFile >> expense.date >> ws) {
         getline(expenseFile, expense.description, ' ');
         expenseFile >> expense.amount;
         totalExpenses += expense.amount;
@@ -371,62 +339,55 @@ void MessSystem::calculateBill()
     expenseFile.close();
 
     ifstream mealFile("meals.txt");
-    if (!mealFile)
-    {
+    if (!mealFile) {
         cout << "Error opening meals.txt" << endl;
         return;
     }
     Meal meal;
-    while (mealFile >> meal.member_id >> meal.date >> meal.meals)
-    {
+    while (mealFile >> meal.member_id >> meal.date >> meal.meals) {
         totalMeals += meal.meals;
     }
     mealFile.close();
 
     double mealRate = (totalMeals == 0) ? 0 : totalExpenses / totalMeals;
 
-    cout << "\n--- Mess Bill Calculation ---\n";                                     
-    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl; 
-    cout << "Total Meals: " << totalMeals << endl;                                   
-    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;          
+    cout << "\n--- Mess Bill Calculation ---\n"; // Added title
+    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl; // Display total expenses
+    cout << "Total Meals: " << totalMeals << endl;                               // Display total meals
+    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;       // Display meal rate
 
     ifstream memberFile("members.txt");
-    if (!memberFile)
-    {
+    if (!memberFile) {
         cout << "Error opening members.txt" << endl;
         return;
     }
 
     Member member;
     cout << "\n--- Member Bills (with Net Expense) ---\n";
-    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
-    {
+    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment) {
         double bill = member.meal_count * mealRate;
         double netExpense = bill - member.investment;
 
         cout << "Member ID: " << member.id
              << ", Name: " << member.name
-             << ", Bill: " << fixed << setprecision(2) << bill                       
-             << ", Investment: " << fixed << setprecision(2) << member.investment    
-             << ", Net Expense: " << fixed << setprecision(2) << netExpense << "\n"; 
+             << ", Bill: " << fixed << setprecision(2) << bill // Format to 2 decimal places
+             << ", Investment: " << fixed << setprecision(2) << member.investment // Format to 2 decimal places
+             << ", Net Expense: " << fixed << setprecision(2) << netExpense << "\n"; // Format to 2 decimal places
     }
     memberFile.close();
 }
 
-void MessSystem::manageMemberExpense()
-{
-    double totalExpenses = 0;
+void MessSystem::manageMemberExpense() {
+     double totalExpenses = 0;
     int totalMeals = 0;
 
     ifstream expenseFile("expenses.txt");
-    if (!expenseFile)
-    {
+    if (!expenseFile) {
         cout << "Error opening expenses.txt" << endl;
         return;
     }
     Expense expense;
-    while (expenseFile >> expense.date >> ws)
-    {
+    while (expenseFile >> expense.date >> ws) {
         getline(expenseFile, expense.description, ' ');
         expenseFile >> expense.amount;
         totalExpenses += expense.amount;
@@ -434,37 +395,33 @@ void MessSystem::manageMemberExpense()
     expenseFile.close();
 
     ifstream mealFile("meals.txt");
-    if (!mealFile)
-    {
+    if (!mealFile) {
         cout << "Error opening meals.txt" << endl;
         return;
     }
     Meal meal;
-    while (mealFile >> meal.member_id >> meal.date >> meal.meals)
-    {
+    while (mealFile >> meal.member_id >> meal.date >> meal.meals) {
         totalMeals += meal.meals;
     }
     mealFile.close();
 
     double mealRate = (totalMeals == 0) ? 0 : totalExpenses / totalMeals;
 
-    cout << "\n--- Mess Expense Management ---\n";                                   
-    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl; 
-    cout << "Total Meals: " << totalMeals << endl;                                   
-    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;          
+    cout << "\n--- Mess Expense Management ---\n"; // Added title
+    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl; // Display total expenses
+    cout << "Total Meals: " << totalMeals << endl;                               // Display total meals
+    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;       // Display meal rate
 
     ifstream memberFile("members.txt");
-    if (!memberFile)
-    {
+    if (!memberFile) {
         cout << "Error opening members.txt" << endl;
         return;
     }
 
     Member member;
     cout << "\n--- Member Net Expenses ---\n";
-    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
-    {
-        double totalBill = (member.meal_count) *(mealRate);
+    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment) {
+        double totalBill = member.meal_count * mealRate;
         double netExpense = totalBill - member.investment;
 
         cout << "Member ID: " << member.id
@@ -475,7 +432,6 @@ void MessSystem::manageMemberExpense()
     }
     memberFile.close();
 }
-
 
 void clearScreen()
 {
@@ -511,20 +467,12 @@ void mainMenu()
              << "Enter your choice: ";
         cin >> choice;
 
-        if (choice > 2 && !isLoggedIn) 
-        {
-            cout << "Please log in first to access this option.\n";
-            clearScreenWithDelay(3000);
-            clearScreen();
-            continue;
-        }
-
         switch (choice)
         {
         case 1:
             if (user.login())
             {
-                cout << "Login successful!!!!!\n";
+                cout << "Login successful!\n";
             }
             else
             {
@@ -625,7 +573,7 @@ void mainMenu()
             break;
 
         case 13:
-            cout << "Exiting the system. Goodbye!!!!\n";
+            cout << "Exiting the system. Goodbye!\n";
             clearScreenWithDelay(3000);
             clearScreen();
             return;
@@ -640,7 +588,7 @@ void mainMenu()
 
 int main()
 {
-    cout << "Please Read the user manual 'User Manual.pdf' before using this Mess Management System" << endl;
+    cout<<"Please Read the user manual \'User Manual.pdf\' before using this Mess Management System"<<endl;
     mainMenu();
     system("Pause");
     return 0;
