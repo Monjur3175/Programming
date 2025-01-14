@@ -10,4 +10,4 @@ for filename in pdfiles:
     marger.append(pdfReader)
 
 pdfFile.close()
-marger.write('marged.pdf')
+marger.write('Project Report.pdf')

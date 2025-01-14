@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <fstream>
 #include <vector>
 #include <string>
@@ -285,7 +285,8 @@ void Expense::viewExpenses()
     file.close();
 }
 
-void Meal::addMeal() {
+void Meal::addMeal()
+{
     Meal newMeal;
     cout << "Enter member ID: ";
     cin >> newMeal.member_id;
@@ -295,7 +296,8 @@ void Meal::addMeal() {
     cin >> newMeal.meals;
 
     ofstream file("meals.txt", ios::app);
-    if (!file) {
+    if (!file)
+    {
         cout << "Error: Unable to open meal data file.\n";
         return;
     }
@@ -306,15 +308,18 @@ void Meal::addMeal() {
 
     ifstream memberFile("members.txt");
     ofstream tempFile("temp.txt");
-    if (!memberFile || !tempFile) {
+    if (!memberFile || !tempFile)
+    {
         cout << "Error: Unable to update member meal count.\n";
         return;
     }
 
     Member member;
     bool found = false;
-    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment) {
-        if (member.id == newMeal.member_id) {
+    while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
+    {
+        if (member.id == newMeal.member_id)
+        {
             member.meal_count += newMeal.meals;
             found = true;
         }
@@ -326,11 +331,11 @@ void Meal::addMeal() {
     remove("members.txt");
     rename("temp.txt", "members.txt");
 
-    if (!found) {
+    if (!found)
+    {
         cout << "Member ID not found. Meal count not updated.\n";
     }
 }
-
 
 void Meal::viewMeals()
 {
@@ -385,10 +390,10 @@ void MessSystem::calculateBill()
 
     double mealRate = (totalMeals == 0) ? 0 : totalExpenses / totalMeals;
 
-    cout << "\n--- Mess Bill Calculation ---\n";                                     
-    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl; 
-    cout << "Total Meals: " << totalMeals << endl;                                   
-    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;          
+    cout << "\n--- Mess Bill Calculation ---\n";
+    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl;
+    cout << "Total Meals: " << totalMeals << endl;
+    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;
 
     ifstream memberFile("members.txt");
     if (!memberFile)
@@ -406,9 +411,9 @@ void MessSystem::calculateBill()
 
         cout << "Member ID: " << member.id
              << ", Name: " << member.name
-             << ", Bill: " << fixed << setprecision(2) << bill                       
-             << ", Investment: " << fixed << setprecision(2) << member.investment    
-             << ", Net Expense: " << fixed << setprecision(2) << netExpense << "\n"; 
+             << ", Bill: " << fixed << setprecision(2) << bill
+             << ", Investment: " << fixed << setprecision(2) << member.investment
+             << ", Net Expense: " << fixed << setprecision(2) << netExpense << "\n";
     }
     memberFile.close();
 }
@@ -448,11 +453,6 @@ void MessSystem::manageMemberExpense()
 
     double mealRate = (totalMeals == 0) ? 0 : totalExpenses / totalMeals;
 
-    cout << "\n--- Mess Expense Management ---\n";                                   
-    cout << "Total Expenses: " << fixed << setprecision(2) << totalExpenses << endl; 
-    cout << "Total Meals: " << totalMeals << endl;                                   
-    cout << "Meal Rate: " << fixed << setprecision(2) << mealRate << endl;          
-
     ifstream memberFile("members.txt");
     if (!memberFile)
     {
@@ -461,10 +461,10 @@ void MessSystem::manageMemberExpense()
     }
 
     Member member;
-    cout << "\n--- Member Net Expenses ---\n";
+    cout << "\n--- Members Net Expenses ---\n";
     while (memberFile >> member.id >> member.name >> member.contact >> member.meal_count >> member.investment)
     {
-        double totalBill = (member.meal_count) *(mealRate);
+        double totalBill = (member.meal_count) * (mealRate);
         double netExpense = totalBill - member.investment;
 
         cout << "Member ID: " << member.id
@@ -476,7 +476,6 @@ void MessSystem::manageMemberExpense()
     memberFile.close();
 }
 
-
 void clearScreen()
 {
     system("cls");
@@ -485,7 +484,7 @@ void clearScreenWithDelay(int milliseconds)
 {
     Sleep(milliseconds);
 }
-
+char quitOption;
 void mainMenu()
 {
     int choice;
@@ -506,12 +505,12 @@ void mainMenu()
              << "9. Add Meal\n"
              << "10. View Meals\n"
              << "11. Calculate Bill\n"
-             << "12. Manage Member Expense\n"
+             << "12. Show Members total Expenses\n"
              << "13. Exit\n"
              << "Enter your choice: ";
         cin >> choice;
 
-        if (choice > 2 && !isLoggedIn) 
+        if (choice > 2 && !isLoggedIn)
         {
             cout << "Please log in first to access this option.\n";
             clearScreenWithDelay(3000);
@@ -551,9 +550,13 @@ void mainMenu()
 
         case 4:
         {
-            Member member;
-            member.viewMembers();
-            clearScreenWithDelay(10000);
+            do
+            {
+                Member member;
+                member.viewMembers();
+                cout << "Press 'q' to quit or any other key to continue: ";
+                cin >> quitOption;
+            } while (quitOption != 'q' && quitOption != 'Q');
             clearScreen();
             break;
         }
@@ -587,9 +590,13 @@ void mainMenu()
 
         case 8:
         {
-            Expense expense;
-            expense.viewExpenses();
-            clearScreenWithDelay(10000);
+            do
+            {
+                Expense expense;
+                expense.viewExpenses();
+                cout << "Press 'q' to quit or any other key to continue: ";
+                cin >> quitOption;
+            } while (quitOption != 'q' && quitOption != 'Q');
             clearScreen();
             break;
         }
@@ -605,22 +612,34 @@ void mainMenu()
 
         case 10:
         {
-            Meal meal;
-            meal.viewMeals();
-            clearScreenWithDelay(10000);
+            do
+            {
+                Meal meal;
+                meal.viewMeals();
+                cout << "Press 'q' to quit or any other key to continue: ";
+                cin >> quitOption;
+            } while (quitOption != 'q' && quitOption != 'Q');
             clearScreen();
             break;
         }
 
         case 11:
-            messSystem.calculateBill();
-            clearScreenWithDelay(10000);
+            do
+            {
+                messSystem.calculateBill();
+                cout << "Press 'q' to quit or any other key to continue: ";
+                cin >> quitOption;
+            } while (quitOption != 'q' && quitOption != 'Q');
             clearScreen();
             break;
 
         case 12:
-            messSystem.manageMemberExpense();
-            clearScreenWithDelay(10000);
+            do
+            {
+                messSystem.manageMemberExpense();
+                cout << "Press 'q' to quit or any other key to continue: ";
+                cin >> quitOption;
+            } while (quitOption != 'q' && quitOption != 'Q');
             clearScreen();
             break;
 
