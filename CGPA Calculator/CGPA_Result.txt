@@ -1,5 +1,19 @@
 Student Name: Monjur
 Roll Number: 220601
-Current Semester: 1
-Semester 1 CGPA: 3 (Credits: 6)
-Overall CGPA: 3
+Total Semester: 2
+
+Semester 1 Results:
+Subject 1: Marks = 70, Grade = A-, Grade Point = 3.5, Credits = 3
+Subject 2: Marks = 65, Grade = B+, Grade Point = 3.25, Credits = 3
+Total Credit of the Semester: 6
+Total CGPA of the Semester: 6.75
+
+Semester 2 Results:
+Subject 1: Marks = 66, Grade = B+, Grade Point = 3.25, Credits = 3
+Subject 2: Marks = 70, Grade = A-, Grade Point = 3.5, Credits = 3
+Total Credit of the Semester: 6
+Total CGPA of the Semester: 6.75
+
+Overall CGPA: 3.38
+Total Points Secured: 40.50
+Semester Total Credit: 12.00
