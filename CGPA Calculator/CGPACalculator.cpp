@@ -3,7 +3,20 @@
 
 using namespace std;
 
-pair<string, float> calculateGrade(float marks)
+class CGPACalculator
+{
+private:
+    string studentName;
+    string studentRoll;
+    int currentSemester;
+    vector<int> numSubjects;
+    vector<vector<float>> subjectMarks;
+    vector<vector<float>> subjectCredits;
+    vector<float> semesterCGPA;
+    vector<float> semesterTotalCredits;
+    float totalpointsecured = 0;
+    float TotalCredit = 0;
+    pair<string, float> calculateGrade(float marks)
 {
     if (marks >= 80)
         return {"A+", 4.0};
@@ -25,20 +38,6 @@ pair<string, float> calculateGrade(float marks)
         return {"D", 2.0};
     return {"F", 0.0};
 }
-
-class CGPACalculator
-{
-private:
-    string studentName;
-    string studentRoll;
-    int currentSemester;
-    vector<int> numSubjects;
-    vector<vector<float>> subjectMarks;
-    vector<vector<float>> subjectCredits;
-    vector<float> semesterCGPA;
-    vector<float> semesterTotalCredits;
-    float totalpointsecured = 0;
-    float TotalCredit = 0;
 
 public:
    void displayTitleAndInstructions()
@@ -80,7 +79,7 @@ public:
         semesterCGPA.resize(currentSemester);
         semesterTotalCredits.resize(currentSemester);
 
-        for (int i = 0; i < currentSemester; ++i)
+        for (int i = 0; i < currentSemester; i++)
         {
             cout << "For Semester " << i + 1 << ":\n";
             cout << "Enter the number of subjects: ";
@@ -128,10 +127,10 @@ public:
         file << "Roll Number: " << studentRoll << endl;
         file << "Total Semester: " << currentSemester << endl;
 
-        for (int i = 0; i < currentSemester; ++i)
+        for (int i = 0; i < currentSemester; i++)
         {
             file << "\nSemester " << i + 1 << " Results:\n";
-            for (int j = 0; j < numSubjects[i]; ++j)
+            for (int j = 0; j < numSubjects[i]; j++)
             {
                 pair<string, float> gradeInfo = calculateGrade(subjectMarks[i][j]);
                 string grade = gradeInfo.first;
@@ -167,5 +166,6 @@ int main()
     calculator.inputDetails();
     calculator.saveToFile();
     calculator.displayFooter();
+    system("pause");
     return 0;
 }

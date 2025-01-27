@@ -12,4 +12,4 @@ resources.rc
 
 windres resources.rc -O coff -o resources.res
 
-g++ Mess_Management.cpp resources.res -o Mess_Management.exe
+g++ CGPACalculator.cpp resources.res -o CGPACalculator.exe
