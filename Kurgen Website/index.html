@@ -15,44 +15,47 @@
             <div class="logo">
                 <h1>NextNode</h1>
             </div>
+            <div class="mobile-menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav class="nav">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Blog</a></li>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#history">History</a></li>
                 </ul>
             </nav>
             <div class="contact-button">
-                <a href="#">CONTACT US</a>
+                <a href="#contact">CONTACT US</a>
             </div>
         </div>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
             <h1>NextNode: IT Services with Online Excellence & Innovative Solutions</h1>
             <p>Discover how NextNode's mission-centric approach and values drive top-tier IT services for online
                 businesses.</p>
             <div class="hero-buttons">
-                <a href="#" class="learn-more">LEARN MORE</a>
-                <a href="#" class="get-started">GET STARTED</a>
+                <a href="#services" class="learn-more">LEARN MORE</a>
+                <a href="#contact" class="get-started">GET STARTED</a>
             </div>
         </div>
     </section>
-    <section class="welcome-section">
+    <section id="about" class="welcome-section">
         <div class="container">
             <div class="welcome-content">
                 <h2>ABOUT US</h2>
-                <h3>Welcome</h3>
+                <h3>Welcome to NextNode</h3>
                 <div class="separator"></div>
-                <p>Discover NextNode, your premier online IT service provider. We stand out with exceptional customer
-                    service, friendly assistance, and a results-driven approach. Experience top-notch IT solutions with
-                    a personal touch. At NextNode, we're committed to your success.</p>
+                <p>As your premier IT service provider, we combine technical expertise with a client-focused approach to deliver innovative solutions that drive business growth. Our team of certified professionals is dedicated to providing exceptional service and cutting-edge technology solutions.</p>
             </div>
             <div class="welcome-image">
-                <img src="abc.png" alt="Welcome Image">
+                <img src="abc.png" alt="Our Team" class="about-image">
             </div>
         </div>
     </section>
@@ -73,7 +76,7 @@
             </div>
         </div>
     </section>
-    <section class="services-section">
+    <section id="services" class="services-section">
         <div class="container">
             <h2>WHAT WE CAN DO</h2>
             <h3>Our Services</h3>
@@ -132,7 +135,7 @@
             </div>
         </div>
     </section>
-    <section class="contact-section">
+    <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-form">
                 <h2>CONTACTS</h2>
@@ -170,7 +173,7 @@
             </div>
         </div>
     </section>
-    <section class="history-section">
+    <section id="history" class="history-section">
         <div class="container">
             <div class="history-content">
                 <h2>HISTORY</h2>
@@ -183,19 +186,181 @@
                 <img src="history.png" alt="History Image">
             </div>
         </div>
-        <footer class="footer">
-            <div class="footer-left">
-                <h3>NextNode</h3>
+    </section>
+    <section class="tech-animation">
+        <div class="animation-container">
+            <canvas class="tech-canvas"></canvas>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <h3 class="footer-logo">NextNode</h3>
+                        <p class="footer-tagline">Innovating Digital Futures</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-columns">
+                        <div class="footer-col">
+                            <h4 class="footer-title">Solutions</h4>
+                            <ul class="footer-links">
+                                <li><a href="#services">Web Development</a></li>
+                                <li><a href="#services">Mobile Apps</a></li>
+                                <li><a href="#services">Cloud Solutions</a></li>
+                                <li><a href="#services">Cybersecurity</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-col">
+                            <h4 class="footer-title">Company</h4>
+                            <ul class="footer-links">
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#history">Our History</a></li>
+                                <li><a href="#contact">Careers</a></li>
+                                <li><a href="#contact">Partnerships</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-col">
+                            <h4 class="footer-title">Resources</h4>
+                            <ul class="footer-links">
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Whitepapers</a></li>
+                                <li><a href="#">Case Studies</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-cta">
+                    <h4 class="cta-title">Stay Ahead with Tech Insights</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe <i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-center">
-                <p>Contact Info</p>
-                <p>Email: kurgen624@gmail.com</p>
-                <p>Phone: +8801772-4098590</p>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2024 NextNode. All rights reserved.</p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Settings</a>
+                    </div>
+                </div>
+                <a href="#home" class="back-to-top">
+                    <i class="fas fa-chevron-up"></i>
+                </a>
             </div>
-            <div class="footer-right">
-                <p>&copy; 2024 NextNode. All Rights Reserved.</p>
-            </div>
-        </footer>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on click outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // 3D Sphere Animation
+        const container = document.querySelector('.animation-container');
+        const canvas = document.querySelector('.tech-canvas');
+
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        renderer.setClearColor(0x000000, 0);
+
+        // Create tech sphere
+        const geometry = new THREE.SphereGeometry(15, 32, 32);
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x3b82f6,
+            wireframe: true,
+            wireframeLinewidth: 2,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // Add particles
+        const particles = new THREE.BufferGeometry();
+        const particlePositions = [];
+        
+        for(let i = 0; i < 5000; i++) {
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            const radius = 15 + Math.random() * 5;
+            
+            particlePositions.push(
+                radius * Math.sin(phi) * Math.cos(theta),
+                radius * Math.cos(phi),
+                radius * Math.sin(phi) * Math.sin(theta)
+            );
+        }
+
+        particles.setAttribute('position', new THREE.Float32BufferAttribute(particlePositions, 3));
+        const particleMaterial = new THREE.PointsMaterial({
+            size: 0.1,
+            color: 0xf59e0b,
+            transparent: true
+        });
+
+        const particleSystem = new THREE.Points(particles, particleMaterial);
+        scene.add(particleSystem);
+
+        // Lighting
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        camera.position.z = 35;
+
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            sphere.rotation.x += 0.001;
+            sphere.rotation.y += 0.002;
+            particleSystem.rotation.y += 0.001;
+            
+            renderer.render(scene, camera);
+        }
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            camera.aspect = container.offsetWidth / container.offsetHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+        });
+
+        animate();
+    </script>
 </body>
 
 </html>

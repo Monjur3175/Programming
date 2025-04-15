@@ -1,0 +1,140 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: None;
+    text-align: left;
+}
+
+li {
+    display: inline-block;
+    margin-right: 5px;
+    position: relative
+}
+
+a {
+    background: #9b59b6;
+    color: #fff;
+    padding: 10px 25px;
+    display: block;
+    text-decoration: none;
+    border-radius: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+a:hover {
+    background: #c0392b;
+}
+
+ul ul {
+    position: absolute;
+    left: 0;
+    top: 35;
+    width: 200px;
+    display: none
+}
+
+ul li:hover ul {
+    left: 0;
+    display: block
+}
+
+ul ul a {
+    border-radius: 0;
+    background: #262626;
+    border-bottom: 1px solid #ddd;
+}
+
+ul ul a:hover {
+    background: #0000ff;
+}
+
+.main {
+    width: 800px;
+    height: 800px;
+    background-color: #95a5a6;
+    margin: auto;
+    position: relative;
+}
+
+.header {
+    background-image: url("header.jpg");
+    background-size: cover;
+    width: 800px;
+    height: 200px;
+    background-color: #e74c3c;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.menu {
+    width: 800px;
+    height: 38px;
+    background-color: #9b59b6;
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    z-index: 1;
+}
+
+.container {
+    width: 800;
+    height: 438px;
+    padding-bottom: 240px;
+    margin: auto;
+    position: relative;
+}
+
+.left_container {
+    width: 165px;
+    height: 438px;
+    padding-left: 10px;
+    background-color: #ffc08c;
+    display: inline-block;
+    position: absolute;
+    top: 240px;
+    left: 10px;
+}
+
+.middle_container {
+    width: 428px;
+    height: 438px;
+    background-color: #91a1ff;
+    display: inline-block;
+    position: absolute;
+    top: 240px;
+    right: 185px;
+    overflow: auto;
+}
+/* Center the h1 in the middle container */
+.middle_container h1 {
+    text-align: center; /* Center the text horizontally */
+    margin: 0 auto; /* Center the element itself if needed */
+}
+.right_container {
+    width: 167px;
+    height: 438px;
+    background-color: #b8e994;
+    display: inline-block;
+    position: absolute;
+    top: 240px;
+    right: 10px;
+}
+
+.footer {
+    width: 800;
+    height: 75px;
+    text-align: center;
+    color: #27099d;
+    background-color: #cc6a6a;
+    padding-top: 50px;
+}
+
+#heading {
+    color: rgb(72, 0, 255);
+    text-align: center;
+}
+
+#para {
+    text-align: justify;
+}

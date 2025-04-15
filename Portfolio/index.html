@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monjur Morshed - Portfolio</title>
+    <title>Monjur Morshed's Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,18 +41,55 @@
 </head>
 
 <body>
+    <!-- Particles Background -->
+    <div id="particles"></div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+    </button>
     <header>
+        <div class="header-background">
+            <div class="animated-gradient"></div>
+            <div class="floating-elements">
+                <div class="floating-icon code-icon"><i class="fas fa-code"></i></div>
+                <div class="floating-icon laptop-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="floating-icon brain-icon"><i class="fas fa-brain"></i></div>
+            </div>
+        </div>
         <div class="container">
             <div class="profile-image">
                 <img src="My_Picture.jpg" alt="Monjur Morshed">
             </div>
-            <h1>Monjur Morshed</h1>
-            <p>IT Executive at NextNode | Competitive Programmer | App Developer Aspirent</p>
-            <div class="contact-info">
-                <a href="mailto:monjurmorshedosama75@gmail.com"><i class="fas fa-envelope"></i>
-                    monjurmorshedosama75@gmail.com</a>
-                <a href="tel:+8801997007988"><i class="fas fa-phone"></i> +880 1997-007988</a>
-                <p><i class="fas fa-map-marker-alt"></i> 178, Kazihata, Rajpara, Rajshahi-6000, Bangladesh</p>
+            <div class="header-content">
+                <h1 class="glitch" data-text="Monjur Morshed">Monjur Morshed</h1>
+                <div class="typing-text">IT Executive at NextNode | Competitive Programmer | App Developer Aspirent
+                </div>
+                <p class="header-description">Passionate about creating innovative solutions through code</p>
+                <div class="tech-skills-showcase">
+                    <div class="skill-tag">C++(OOPS)(DSA)</div>
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">Kotlin</div>
+                    <div class="skill-tag">Android Development</div>
+                    <div class="skill-tag">Problem Solving</div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Monjur3175" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:monjurmorshedosama75@gmail.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow"></div>
             </div>
         </div>
     </header>
@@ -65,8 +101,9 @@
                 I am currently pursuing a Bachelor of Science (Engineering) in Information & Communication Engineering
                 (ICE) at Pabna University of Science and Technology. Through my academic journey, I have developed a
                 strong foundational understanding of critical core concepts such as Data Structures, Algorithms, and
-                Object-Oriented Programming (OOP), which I practice and expand through implementation in C++. Currently,
-                I am focused on developing apps using Kotlin, combining theoretical knowledge with practical
+                Object-Oriented Programming (OOP), which I practice and expand through implementation in C++ and Java.
+                Currently,
+                I am focused on developing Android apps using Kotlin, combining theoretical knowledge with practical
                 application.
 
                 In addition to my academic pursuits, I work as an IT Executive at NextNode, a position I have held since
@@ -293,7 +330,7 @@
                     Embeded System Research and Development, Solver Green, PUST
                 </a>
             </div>
-            
+
         </section>
         <section id="interests" class="container">
             <h2>Interests</h2>
@@ -368,13 +405,42 @@
         </section>
     </main>
     <footer>
-        <div class="container">
-            <p>&copy; Monjur Morshed</p>
-            <p>&#9997;Privacy and Terms Applied</p>
-            <p>All Rights Reserved&trade;</p>
-            <button id="print-cv" onclick="window.print()">Print CV</button>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Me</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> monjurmorshedosama75@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +880 1997-007988</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 178, Kazihata, Rajpara, Rajshahi-6000, Bangladesh</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <nav class="footer-nav">
+                    <a href="#summary">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certifications">Certificates</a>
+                </nav>
+            </div>
+            <div class="footer-section connect-section">
+                <h3>Connect With Me</h3>
+                <div class="footer-social">
+                    <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:monjurmorshedosama75@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Monjur Morshed. All rights reserved.</p>
+            <button id="print-cv" onclick="window.print()">
+                <i class="fas fa-print"></i> Print CV
+            </button>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,20 +1,13 @@
-Student Name: Monjur Morshed
-Roll Number: 220601
-Total Semester: 2
+Student Name: jobayer
+Roll Number: 7
+Total Semester: 1
 
 Semester 1 Results:
-Subject 1: Marks = 66, Grade = B+, Grade Point = 3.25, Credits = 3
-Subject 2: Marks = 55, Grade = B-, Grade Point = 2.75, Credits = 3
-Subject 3: Marks = 90, Grade = A+, Grade Point = 4, Credits = 3
-Total Credit of the Semester: 9
-Total CGPA of the Semester: 5.58333
-
-Semester 2 Results:
-Subject 1: Marks = 58, Grade = B-, Grade Point = 2.75, Credits = 3
+Subject 1: Marks = 80, Grade = A+, Grade Point = 4, Credits = 3
 Subject 2: Marks = 90, Grade = A+, Grade Point = 4, Credits = 3
 Total Credit of the Semester: 6
-Total CGPA of the Semester: 8.375
+Total CGPA of the Semester: 4
 
-Overall CGPA: 3.35
-Total Points Secured: 50.25
-Semester Total Credit: 15.00
+Overall CGPA: 4.00
+Total Points Secured: 24.00
+Semester Total Credit: 6.00

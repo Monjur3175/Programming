@@ -155,7 +155,7 @@ public:
         cout << "Result saved Successfully in .txt file" << endl;
         cout << "Result will be shown in the .txt file" << endl;
         cout << "-------------------------------------------------------" << endl;
-        cout << "CGPA Calculator was made by Monjur Morshed." << endl;
+        cout << "CGPA Calculator was made by j0bayer." << endl;
     }
 };
 
