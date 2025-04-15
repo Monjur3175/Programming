@@ -3,11 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SumCalculator extends JFrame {
+public class sumcalculator extends JFrame {
     private JTextField num1Field, num2Field;
     private JLabel resultLabel;
 
-    public SumCalculator() {
+    public sumcalculator() {
         setTitle("Sum Calculator");
         setSize(350, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,7 +24,7 @@ public class SumCalculator extends JFrame {
                 try {
                     double num1 = Double.parseDouble(num1Field.getText().trim());
                     double num2 = Double.parseDouble(num2Field.getText().trim());
-                    double sum = num1 + num2;
+                    double sum = num1 * num2;
                     resultLabel.setText("Result: " + sum);
                 } catch (NumberFormatException ex) {
                     resultLabel.setText("Invalid Input!");
@@ -42,6 +42,6 @@ public class SumCalculator extends JFrame {
     }
 
     public static void main(String[] args) {
-        new SumCalculator();
+        new sumcalculator();
     }
 }
