@@ -9,7 +9,7 @@ public class sumcalculator extends JFrame {
 
     public sumcalculator() {
         setTitle("Sum Calculator");
-        setSize(350, 200);
+        setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(4, 2, 10, 10));
         JLabel num1Label = new JLabel("Enter first number:");
