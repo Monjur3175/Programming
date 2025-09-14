@@ -1,29 +1,35 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-int binarySearch(const vector<int> &a, int key)
-{
-    int l = 0, r = (int)a.size() - 1;
-    while (l <= r)
-    {
-        int m = l + (r - l) / 2;
-        if (a[m] == key)
-            return m;
-        else if (a[m] < key)
-            l = m + 1;
-        else
-            r = m - 1;
-    }
-    return -1;
-}
 
 int main()
 {
-    vector<int> a = {1, 3, 5, 7, 9, 11, 15};
-    int key = 7;
-    int idx = binarySearch(a, key);
-    if (idx != -1)
-        cout << "Found at index " << idx << '\n';
-    else
-        cout << "Not found\n";
+    int n, x;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter sorted elements: ";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    cout << "Enter element to search: ";
+    cin >> x;
+
+    int low = 0, high = n - 1, mid;
+    bool found = false;
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (arr[mid] == x)
+        {
+            cout << "Element found at position " << mid + 1 << endl;
+            found = true;
+            break;
+        }
+        else if (arr[mid] < x)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    if (!found)
+        cout << "Element not found!" << endl;
+    return 0;
 }

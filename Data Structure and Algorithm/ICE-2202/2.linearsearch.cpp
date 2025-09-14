@@ -1,30 +1,29 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-int linearSearch(const vector<int> &a, int key)
-{
-    for (size_t i = 0; i < a.size(); ++i)
-        if (a[i] == key)
-            return (int)i;
-    return -1;
-}
 
 int main()
 {
-    vector<int> a ;
-    cout<<"Enter the Number of Element"<<endl;
-    int n;
-    cin>>n;
-    cout<<"Enter the element"<<endl;
-    for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        a.push_back(x);
+    int n, x;
+    cout << "Enter number of elements: ";
+    cin >> n;
+    int arr[n];
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    cout << "Enter element to search: ";
+    cin >> x;
+
+    bool found = false;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == x)
+        {
+            cout << "Element found at position " << i + 1 << endl;
+            found = true;
+            break;
+        }
     }
-    int key = 12;
-    int idx = linearSearch(a, key);
-    if (idx != -1)
-        cout << "Found at index " << idx << '\n';
-    else
-        cout << "Not found\n";
+    if (!found)
+        cout << "Element not found!" << endl;
+    return 0;
 }

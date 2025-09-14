@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define MAX 100
+#define MAX 100   // Maximum size of stack
 
 class Stack {
     int arr[MAX];
@@ -9,6 +9,8 @@ class Stack {
 
 public:
     Stack() { top = -1; }
+
+    // Push operation
     void push(int value) {
         if (top >= MAX - 1) {
             cout << "Stack Overflow!" << endl;
@@ -17,6 +19,8 @@ public:
             cout << value << " pushed into stack." << endl;
         }
     }
+
+    // Pop operation
     void pop() {
         if (top < 0) {
             cout << "Stack Underflow!" << endl;
@@ -24,13 +28,15 @@ public:
             cout << arr[top--] << " popped from stack." << endl;
         }
     }
+
+    // Display operation
     void display() {
         if (top < 0) {
             cout << "Stack is empty." << endl;
         } else {
-            cout << "Stack elements are:"<<endl;
+            cout << "Stack elements are: ";
             for (int i = top; i >= 0; i--) {
-                cout << arr[i] << endl;
+                cout << arr[i] << " ";
             }
             cout << endl;
         }

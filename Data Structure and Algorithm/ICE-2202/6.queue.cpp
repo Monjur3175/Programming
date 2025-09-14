@@ -1,62 +1,53 @@
-#include <bits/stdc++.h>
-#include <ratio>
+#include <iostream>
 using namespace std;
+#define MAX 100
 
-class Node {
-public:
-  int data;
-  Node *next;
-  Node(int d) {
-    data = d;
-    next = nullptr;
-  }
-};
-class Queue {
-  Node *head, *tail;
+class Queue
+{
+  int arr[MAX], front, rear;
 
 public:
-  Queue() {
-    head = nullptr;
-    tail = nullptr;
-  }
-  void add(int d) {
-    Node *newnode = new Node(d);
-    if (tail == nullptr) {
-      head = newnode;
-      tail = newnode;
-    } else {
-      tail->next = newnode;
-      tail = tail->next;
+  Queue() { front = rear = -1; }
+  void enqueue(int x)
+  {
+    if (rear == MAX - 1)
+      cout << "Queue Overflow\n";
+    else
+    {
+      if (front == -1)
+        front = 0;
+      arr[++rear] = x;
     }
   }
-  int remove() {
-    if (head == nullptr)
-      return -1;
-    int data = head->data;
-    Node *temp;
-    temp = head;
-    head = head->next;
-    delete temp;
-    return data;
+  void dequeue()
+  {
+    if (front == -1 || front > rear)
+      cout << "Queue Underflow\n";
+    else
+      cout << "Dequeued: " << arr[front++] << endl;
   }
-  void print() {
-    Node *current = head;
-    while (current != nullptr) {
-      cout << current->data << "->";
-      current = current->next;
+  void display()
+  {
+    if (front == -1 || front > rear)
+      cout << "Queue is empty\n";
+    else
+    {
+      cout << "Queue elements: ";
+      for (int i = front; i <= rear; i++)
+        cout << arr[i] << " ";
+      cout << endl;
     }
-    cout << endl;
   }
 };
 
-int main() {
+int main()
+{
   Queue q;
-  for (int i = 0; i < 10; i++) {
-    q.add(i);
-    q.print();
-  }
-  for (int i = 0; i < 10; i++) {
-    q.remove();
-    q.print();
-  }
+  q.enqueue(10);
+  q.enqueue(20);
+  q.enqueue(30);
+  q.display();
+  q.dequeue();
+  q.display();
+  return 0;
 }

@@ -1,63 +1,54 @@
-#include <bits/stdc++.h>
-#include <vector>
+#include <iostream>
 using namespace std;
 
-void do_merge(int l, int m, int r, vector<int> &v)
+void merge(int arr[], int l, int m, int r)
 {
-  int i = l, j = m;
-  vector<int> temp;
-  while (i < m and j < r)
+  int n1 = m - l + 1, n2 = r - m;
+  int L[n1], R[n2];
+  for (int i = 0; i < n1; i++)
+    L[i] = arr[l + i];
+  for (int j = 0; j < n2; j++)
+    R[j] = arr[m + 1 + j];
+
+  int i = 0, j = 0, k = l;
+  while (i < n1 && j < n2)
   {
-    if (v[i] < v[j])
-    {
-      temp.push_back(v[i]);
-      i++;
-    }
+    if (L[i] <= R[j])
+      arr[k++] = L[i++];
     else
-    {
-      temp.push_back(v[j]);
-      j++;
-    }
+      arr[k++] = R[j++];
   }
-  if (i < m)
-  {
-    for (; i < m; i++)
-    {
-      temp.push_back(v[i]);
-    }
-  }
-  if (j < r)
-  {
-    for (; j < r; j++)
-    {
-      temp.push_back(v[j]);
-    }
-  }
-  for (int y = 0; y < temp.size(); y++)
-  {
-    v[l + y] = temp[y];
-  }
+  while (i < n1)
+    arr[k++] = L[i++];
+  while (j < n2)
+    arr[k++] = R[j++];
 }
-void merge_sort(int l, int r, vector<int> &v)
+
+void mergeSort(int arr[], int l, int r)
 {
-  cout << l << " " << r << endl;
-  if (r - l == 1)
+  if (l < r)
   {
-    return;
+    int m = (l + r) / 2;
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m, r);
   }
-  int m = (l + r) / 2;
-  merge_sort(l, m, v);
-  merge_sort(m, r, v);
-  do_merge(l, m, r, v);
 }
 
 int main()
 {
-  vector<int> v{10, 7, 9, 8, 1, 2, 3, 12, 5};
-  merge_sort(0, 9, v);
-  for (int i = 0; i < v.size(); i++)
-  {
-    cout << v[i] << ' ';
-  }
-  cout << endl;
+  int n;
+  cout << "Enter number of elements: ";
+  cin >> n;
+  int arr[n];
+  cout << "Enter elements: ";
+  for (int i = 0; i < n; i++)
+    cin >> arr[i];
+
+  mergeSort(arr, 0, n - 1);
+
+  cout << "Sorted array: ";
+  for (int i = 0; i < n; i++)
+    cout << arr[i] << " ";
+  return 0;
 }
