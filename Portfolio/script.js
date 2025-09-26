@@ -19,7 +19,7 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 
-document.querySelectorAll('.card, .skill, .interest').forEach((el) => observer.observe(el));
+document.querySelectorAll('.card, .skill, .interest, .fade-in').forEach((el) => observer.observe(el));
 
 // Typing effect for header
 const typeWriter = (text, element, speed = 100) => {
@@ -37,28 +37,30 @@ const typeWriter = (text, element, speed = 100) => {
 
 // Typing animation
 const typingText = document.querySelector('.typing-text');
-const text = typingText.textContent;
-typingText.textContent = '';
-
-let charIndex = 0;
-function type() {
-    if (charIndex < text.length) {
-        typingText.textContent += text.charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100);
-    } else {
-        setTimeout(resetTyping, 3000);
-    }
-}
-
-function resetTyping() {
-    charIndex = 0;
+if (typingText) {
+    const text = typingText.textContent;
     typingText.textContent = '';
-    setTimeout(type, 500);
-}
 
-// Start typing animation
-setTimeout(type, 1000);
+    let charIndex = 0;
+    function type() {
+        if (charIndex < text.length) {
+            typingText.textContent += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 100);
+        } else {
+            setTimeout(resetTyping, 3000);
+        }
+    }
+
+    function resetTyping() {
+        charIndex = 0;
+        typingText.textContent = '';
+        setTimeout(type, 500);
+    }
+
+    // Start typing animation
+    setTimeout(type, 1000);
+}
 
 // Dark mode toggle
 const toggleDarkMode = () => {
@@ -75,6 +77,7 @@ if (localStorage.getItem('darkMode') === 'true') {
 // Particle background
 const createParticles = () => {
     const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -87,3 +90,22 @@ const createParticles = () => {
 
 // Initialize particles
 window.addEventListener('load', createParticles);
+
+// Navbar scroll color behavior
+const nav = document.querySelector('nav.site-nav');
+const onScroll = () => {
+    if (!nav) return;
+    const scrolled = window.scrollY > 10;
+    nav.classList.toggle('scrolled', scrolled);
+};
+window.addEventListener('scroll', onScroll);
+onScroll();
+
+// Kebab menu toggle
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.querySelector('.site-nav .menu');
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+    });
+}

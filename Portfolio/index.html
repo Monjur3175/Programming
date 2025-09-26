@@ -40,14 +40,25 @@
     </style>
 </head>
 
-<body>
+<body class="home">
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a class="brand" href="index.html">Monjur Morshed</a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Menu"><i class="fas fa-ellipsis-v"></i></button>
+            <div class="menu">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+                <a class="active" href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="experience.html">Experience</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="certificates.html">Certificates</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
     <!-- Particles Background -->
     <div id="particles"></div>
-
-    <!-- Dark Mode Toggle -->
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-        <i class="fas fa-moon"></i>
-    </button>
     <header>
         <div class="header-background">
             <div class="animated-gradient"></div>
@@ -69,7 +80,8 @@
                 <div class="tech-skills-showcase">
                     <div class="skill-tag">C++(OOPS)(DSA)</div>
                     <div class="skill-tag">Python</div>
-                    <div class="skill-tag">Web Development</div>
+                    <div class="skill-tag">Kotlin</div>
+                    <div class="skill-tag">MERN Stack Web Development</div>
                     <div class="skill-tag">Problem Solving</div>
                 </div>
                 <div class="social-links">
@@ -84,337 +96,9 @@
                     </a>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <div class="arrow"></div>
-            </div>
         </div>
     </header>
-
-    <main>
-        <section id="summary" class="container">
-            <h2>Professional Summary</h2>
-            <p>
-                I am currently pursuing a Bachelor of Science (Engineering) in Information & Communication Engineering
-                (ICE) at Pabna University of Science and Technology. Through my academic journey, I have developed a
-                strong foundational understanding of critical core concepts such as Data Structures, Algorithms, and
-                Object-Oriented Programming (OOP), which I practice and expand through implementation in C++ and Java.
-                Currently,
-                I am focused on developing Website Using MERN Stack, combining theoretical knowledge with practical
-                application.
-
-                In addition to my academic pursuits, I work as an IT Executive at NextNode, a position I have held since
-                December 2024. I am also an active member of the ICE Programming Club and ICE Association, where I
-                participate in programming contests and collaborate on team projects that fuel my passion for
-                technology.
-
-                Beyond academics, I contribute as a student member for the PUST Career and Entrepreneurship Club and
-                Solver Green, embracing opportunities to grow through meaningful extracurricular activities. These
-                experiences not only enhance my skills but also inspire me to pursue a fulfilling career in technology.
-
-                Driven by a desire to create secure and innovative solutions, I aim to tackle real-world challenges and
-                make a positive impact.
-            </p>
-        </section>
-
-        <section id="education" class="container">
-            <h2>Education</h2>
-            <div class="card">
-                <h3>Bachelor of Science (Engineering) in Information and Communication Engineering</h3>
-                <p>Pabna University of Science and Technology (Ongoing) - Expected Graduation: 2027</p>
-            </div>
-            <div class="card">
-                <h3>Higher Secondary School Certificate (HSC)</h3>
-                <p>Rajshahi Govt. Model School and College (2021) - GPA: 5.00/5.00</p>
-            </div>
-            <div class="card">
-                <h3>Secondary School Certificate (SSC)</h3>
-                <p>Rajshahi Collegiate School (2019) - GPA: 5.00/5.00</p>
-            </div>
-        </section>
-        <section id="experience" class="container">
-            <h2>Experience</h2>
-            <div class="experience">
-                <h3>IT Executive</h3>
-                <p> <strong>NextNode,</strong>Rajshahi,Bangladesh (Remote)</p>
-                <p> December 2024 - Present</p>
-
-                <a href="https://nextnode.netlify.app/" target="_blank">Visit Website</a>
-                <h5>As an IT Executive, I manage and oversee IT infrastructure and provide innovative solutions to
-                    enhance Software Development.</h5>
-            </div>
-        </section>
-        <section id="skills" class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">C/C++(Competitive Programming)</div>
-                <div class="skill">Python</div>
-                <div class="skill">Java</div>
-                <div class="skill">Kotlin</div>
-                <div class="skill">HTML</div>
-                <div class="skill">CSS</div>
-                <div class="skill">TailwindCSS</div>
-                <div class="skill">Javascript*</div>
-                <div class="skill">Git & GitHub</div>
-                <div class="skill">Object-Oriented Programming</div>
-                <div class="skill">Data Structures & Algorithms</div>
-                <div class="skill">Database Management Systems</div>
-                <div class="skill">Operating Systems</div>
-                <div class="skill">Microsoft Office Suite</div>
-                <div class="skill">Communication (Bangla & English)</div>
-                <div class="skill">Leadership</div>
-            </div>
-        </section>
-        <section id="projects" class="container">
-            <h2>Projects</h2>
-            <div class="card">
-                <h3>CGPA Calculator (C++)</h3>
-                <p>This C++ program calculates your Cumulative Grade Point Average (CGPA) based on your grades and
-                    credit hours. It simplifies the process and provides an accurate result.</p>
-                <a href="https://github.com/Monjur3175/Programming/tree/main/OOPS%20Project" target="_blank">View Code
-                    on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Mess Management System (C++)</h3>
-                <p>The Mess Management System is a console-based application designed to manage mess operations
-                    efficiently. It tracks members, investments, meals, and expenses, and calculates meal rates and net
-                    expenses for each member. The system ensures streamlined management of financial records and meal
-                    distribution.</p>
-                <a href="https://github.com/Monjur3175/Programming/tree/main/Mess%20Management%20System"
-                    target="_blank">View Code
-                    on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Robo Speaker (Python)</h3>
-                <p>This C++ project controls a robotic speaker using user commands. Explore the possibility of voice
-                    interaction with this innovative creation.</p>
-                <a href="https://github.com/Monjur3175/Programming/blob/main/Python%20Project/RoboSpeaker.py"
-                    target="_blank">View Code on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Weather App (Python)</h3>
-                <p>This Python application retrieves real-time weather data using the Openweathermap API. Stay informed
-                    about current weather conditions and plan accordingly.</p>
-                <a href="https://github.com/Monjur3175/Programming/blob/main/Python%20Project/WeatherApp.py"
-                    target="_blank">View Code on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Image Resizer (Python)</h3>
-                <p>This Python program resizes images to your desired dimensions, allowing for easier management and
-                    storage.</p>
-                <a href="https://github.com/Monjur3175/Programming/blob/main/Python%20Project/image-resizer.py"
-                    target="_blank">View Code on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>PDF Merger (Python)</h3>
-                <p>This Python script efficiently combines multiple PDF documents into a single file, simplifying
-                    organization and sharing.</p>
-                <a href="https://github.com/Monjur3175/Programming/blob/main/Python%20Project/pdfmarger.py"
-                    target="_blank">View Code on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Password Generator (Python)</h3>
-                <p>This Python tool generates secure and complex passwords, enhancing your online security practices.
-                </p>
-                <a href="https://github.com/Monjur3175/Programming/blob/main/Python%20Project/passwordgenerator.py"
-                    target="_blank">View Code on GitHub</a>
-            </div>
-            <div class="card">
-                <h3>Facial Recognition Attendance System (Python)</h3>
-                <p>This Python project leverages facial recognition technology to create an attendance system, offering
-                    a convenient and secure solution.</p>
-                <a href="https://github.com/Monjur3175/Programming/blob/main/Python%20Project/facialrecognition.py"
-                    target="_blank">View Code on GitHub</a>
-            </div>
-        </section>
-        <section id="certifications" class="container">
-            <h2>Certifications</h2>
-
-            <div class="card">
-                <a class="certificate-link" href="Career_Essentials_Cybersecurity-Microsoft LinkedIn.png"
-                    target="_blank">
-
-                    Career Essentials in Cybersecurity, Microsoft & LinkedIn
-                </a>
-            </div>
-            <div class="card">
-                <a class="certificate-link"
-                    href="Career Essentials in System Administration by Microsoft and LinkedIn.jpg" target="_blank">
-
-                    Career Essentials in System Administration, Microsoft & LinkedIn
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Communication Hacks-10 Minute School.jpg" target="_blank">
-
-                    Communication Hacks, 10 Minute School
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link"
-                    href="https://learn.deeplearning.ai/accomplishments/b2a2f822-7231-42f4-bba8-b6a06f5e8824?usp=sharing"
-                    target="_blank">
-
-                    ChatGPT Prompt Engineering, deeplearning.org
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Cracking Coding Interview.jpg" target="_blank">
-
-                    Cracking Coding Interview, Ostad
-                </a>
-            </div>
-            <div class="card">
-                <a class="certificate-link" href="HP Life- Agile Project Management.jpeg" target="_blank">
-
-                    HP Life- Agile Project Management
-                </a>
-            </div>
-            <div class="card">
-                <a class="certificate-link" href="Cybersecurity Awareness.png" target="_blank">
-
-                    HP Life- Cybersecurity Awareness
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="AWS Cloud Essentials.png" target="_blank">
-
-                    Cloud Essentials, AWS
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Udemy Iot Course.jpg" target="_blank">
-
-                    Internet of Things(Iot), Udemy
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Introduction to Artificial Intelligence.jpg" target="_blank">
-
-                    Artificial Intelligence Fundumentals, Great Learning
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Digital Marketing.png" target="_blank">
-
-                    Digital Marketing, Hubspot Academy
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Linux Tutorial.jpg" target="_blank">
-
-                    Linux Essentials Certifications, Great Learning
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Udemy AI and Deep Learning.jpg" target="_blank">
-
-                    Artificial Intelligence and Deep Learning, Udemy
-                </a>
-            </div>
-            <div class="card">
-                <a class="certificate-link" href="Project Showcasing.jpg" target="_blank">
-                    Project Showcasing, PUST
-                </a>
-            </div>
-            <div class="card">
-                <a class="certificate-link" href="English Proficiency.jpg" target="_blank">
-
-                    Practical English Speaking and Writing Preparation Course, Project Headway (2022)
-                </a>
-            </div>
-
-            <div class="card">
-                <a class="certificate-link" href="Embedded Systems.jpg" target="_blank">
-
-                    Embeded System Research and Development, Solver Green, PUST
-                </a>
-            </div>
-
-        </section>
-        <section id="interests" class="container">
-            <h2>Interests</h2>
-            <div class="interests-grid">
-                <div class="interest">Competitive Programming</div>
-                <div class="interest">MERN Stack Web Development</div>
-            </div>
-        </section>
-        <section id="tools" class="container">
-            <h2>Tools</h2>
-            <h3>Operating Systems</h3>
-            <div class="xcard">Windows 7(Pro)/10/11</div>
-            <div class="xcard">Arch Linux</div>
-            <div class="xcard">Kali Linux</div>
-            <div class="xcard">Ubuntu</div>
-            <div class="xcard">Linux Mint</div>
-            <h3>IDE</h3>
-            <div class="xcard">IntelliJ IDEA Community Edition</div>
-            <div class="xcard">Visual Studio Code</div>
-            <div class="xcard">Android Studio</div>
-            <div class="xcard">Codeblocks</div>
-            <div class="xcard">Pycharm</div>
-            <div class="xcard">Arduino</div>
-            <div class="xcard">Matlab</div>
-            <h3>Other Tools</h3>
-            <div class="xcard">VMware Workstation 17 Player</div>
-            <div class="xcard">Oracle VM VirtualBox</div>
-            <div class="xcard">Github Desktop</div>
-        </section>
-        <section id="activities" class="container">
-            <h2>Extra Curricular Activities</h2>
-
-            <h3>Volunteer</h3>
-            <div class="card">
-                <h3>Solver Green, PUST</h3>
-                <p><strong>Student Member</strong></p>
-                <p>Contributed in this Social Organization for Learning, Volunteering, Education, and Research.</p>
-            </div>
-            <div class="card">
-                <h3>PUST Career and Entreprenuership Club</h3>
-                <p><strong>Student Volunteer</strong></p>
-                <p>Actively participated in workshops and events promoting career development and entrepreneurial
-                    ventures.</p>
-            </div>
-            <h3>Organization</h3>
-            <div class="card">
-                <h3>PUST Programming Club</h3>
-                <p><strong>Member</strong></p>
-                <p>Engaged in collaborative programming projects and enhanced problem-solving skills.</p>
-            </div>
-            <div class="card">
-                <h3>ICE Association</h3>
-                <p><strong>Member</strong></p>
-                <p>Participated in events and activities fostering cultural activities of ICE Department.</p>
-            </div>
-        </section>
-        <section id="profiles" class="container">
-            <h2>Profiles</h2>
-            <div class="profiles-grid">
-                <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i
-                        class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://codeforces.com/profile/monjur7075" target="_blank"><i class="fas fa-code"></i>
-                    Codeforces</a>
-                <a href="https://www.codechef.com/users/monjurmorshed" target="_blank"><i class="fas fa-code"></i>
-                    CodeChef</a>
-                <a href="https://www.facebook.com/monjur.morshed.54379" target="_blank"><i class="fab fa-facebook"></i>
-                    Facebook</a>
-                <a href="https://t.me/monjur7075" target="_blank"><i class="fab fa-telegram"></i>
-                    Telegram</a>
-            </div>
-        </section>
-    </main>
+    
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -428,11 +112,12 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <nav class="footer-nav">
-                    <a href="#summary">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#certifications">Certificates</a>
+                    <a href="about.html">About</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="certificates.html">Certificates</a>                    
+                    <a href="contact.html">Contact</a>
                 </nav>
             </div>
             <div class="footer-section connect-section">
@@ -440,15 +125,15 @@
                 <div class="footer-social">
                     <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:monjurmorshedosama75@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/+8801997007988" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Monjur Morshed. All rights reserved.</p>
-            <button id="print-cv" onclick="window.print()">
-                <i class="fas fa-print"></i> Print CV
-            </button>
+            <p>&copy; 2025 Monjur Morshed. All rights reserved.</p>
+            <a href="Resume of Monjur Morshed.pdf" download class="btn" target="_blank">
+                <i class="fas fa-download"></i> Download CV
+            </a>
         </div>
     </footer>
     <script src="script.js"></script>

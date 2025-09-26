@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Monjur Morshed</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="My_Picture.jpg">
+</head>
+
+<body>
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a class="brand" href="index.html">Monjur Morshed</a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Menu"><i class="fas fa-ellipsis-v"></i></button>
+            <div class="menu">
+                <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="experience.html">Experience</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="certificates.html">Certificates</a>
+                <a class="active" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="particles"></div>
+
+    <main class="container">
+        <section id="profiles">
+            <h2>Profiles</h2>
+            <div class="profiles-grid">
+                <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://codeforces.com/profile/monjur7075" target="_blank"><i class="fas fa-code"></i> Codeforces</a>
+                <a href="https://www.codechef.com/users/monjurmorshed" target="_blank"><i class="fas fa-code"></i> CodeChef</a>
+                <a href="https://t.me/monjur7075" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                <a href="mailto:monjurmorshedosama75@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://wa.me/+8801997007988" target="_blank" class="contact-item">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                  </a>
+            </div>
+        </section>
+
+        <section id="contact-info">
+            <h2>Contact</h2>
+            <div class="card">
+                <p><i class="fas fa-envelope"></i> monjurmorshedosama75@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +880 1997-007988</p>
+                <p><i class="fas fa-map-marker-alt"></i> 178, Kazihata, Rajpara, Rajshahi-6000, Bangladesh</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Me</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> monjurmorshedosama75@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +880 1997-007988</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 178, Kazihata, Rajpara, Rajshahi-6000, Bangladesh</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <nav class="footer-nav">
+                    <a href="about.html">About</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="certificates.html">Certificates</a>                    
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-section connect-section">
+                <h3>Connect With Me</h3>
+                <div class="footer-social">
+                    <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/+8801997007988" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Monjur Morshed. All rights reserved.</p>
+            <a href="Resume of Monjur Morshed.pdf" download class="btn" target="_blank">
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
+    </footer>
+    <script>
+    // Simple Google Apps Script POST
+    document.getElementById('gsheet-form').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const status = document.getElementById('form-status');
+        status.textContent = 'Sending...';
+        const formData = new FormData(this);
+        const payload = Object.fromEntries(formData.entries());
+        try {
+            const resp = await fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            status.textContent = 'Submitted successfully!';
+            this.reset();
+        } catch (err) {
+            status.textContent = 'Failed to submit. Please try again later.';
+        }
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html> 
