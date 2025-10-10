@@ -1,33 +1,58 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-struct Item{int w,p;};
+// Function to find the maximum of two numbers
+int maxValue(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
 
-int main(){
-    vector<Item> it = {{2,15},{6,25},{12,13},{9,23}}; // (w,p) pairs
-    int n = (int)it.size(), C = 20;
+int main() {
+    int n, W;  // n = number of items, W = capacity of knapsack
 
-    vector<vector<int>> dp(n+1, vector<int>(C+1,0));
-    for(int i=1;i<=n;i++){
-        for(int c=0;c<=C;c++){
-            dp[i][c] = dp[i-1][c];
-            if(it[i-1].w<=c)
-                dp[i][c] = max(dp[i][c], it[i-1].p + dp[i-1][c - it[i-1].w]);
+    cout << "Enter number of items: ";
+    cin >> n;
+
+    cout << "Enter capacity of knapsack: ";
+    cin >> W;
+
+    int value[n + 1];
+    int weight[n + 1];
+
+    cout << "Enter the values of items: ";
+    for (int i = 1; i <= n; i++) {
+        cin >> value[i];
+    }
+
+    cout << "Enter the weights of items: ";
+    for (int i = 1; i <= n; i++) {
+        cin >> weight[i];
+    }
+
+    int dp[n + 1][W + 1];
+
+    // Initialize DP table
+    for (int i = 0; i <= n; i++) {
+        for (int w = 0; w <= W; w++) {
+            dp[i][w] = 0;
         }
     }
-    cout << "Maximum profit: " << dp[n][C] << '\n';
 
-    // reconstruct chosen items (indices 1..n)
-    vector<int> chosen;
-    int c=C;
-    for(int i=n;i>=1;i--){
-        if(dp[i][c]!=dp[i-1][c]){
-            chosen.push_back(i); // item i chosen
-            c -= it[i-1].w;
+    // Fill DP table using 0/1 Knapsack formula
+    for (int i = 1; i <= n; i++) {
+        for (int w = 1; w <= W; w++) {
+            if (weight[i] <= w) {
+                dp[i][w] = maxValue(value[i] + dp[i - 1][w - weight[i]], dp[i - 1][w]);
+            } else {
+                dp[i][w] = dp[i - 1][w];
+            }
         }
     }
-    reverse(chosen.begin(), chosen.end());
-    cout << "Chosen item indices: ";
-    for(int id: chosen) cout << id << ' ';
-    cout << '\n';
+
+    cout << "\nMaximum value in knapsack = " << dp[n][W] << endl;
+
+    return 0;
 }
