@@ -1,17 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void hanoi(int n, char from, char aux, char to)
+void hanoi(int n, char src, char helper, char dest)
 {
     if (n == 0)
         return;
-    hanoi(n - 1, from, to, aux);
-    cout << "Move disk " << n << " from " << from << " to " << to << '\n';
-    hanoi(n - 1, aux, from, to);
+    hanoi(n - 1, src, dest, helper);
+    cout << "Move disk " << n << " src " << src << " dest " << dest << '\n';
+    hanoi(n - 1, helper, src, dest);
 }
 
 int main()
 {
-    int N = 2;
+    int N;
+    cin>>N;
     hanoi(N, 'A', 'B', 'C');
 }

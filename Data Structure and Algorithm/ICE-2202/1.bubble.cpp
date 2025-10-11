@@ -12,12 +12,18 @@ void bubbleSort(vector<int> &a)
         {
             if (a[j] > a[j + 1])
             {
-                swap(a[j], a[j + 1]);
+                int temp;
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
                 swapped = true;
             }
         }
-        if (!swapped)
+        if (swapped == false)
+        {
             break;
+        }
+            
     }
 }
 

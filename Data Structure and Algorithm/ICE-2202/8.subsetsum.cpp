@@ -1,35 +1,34 @@
 #include <iostream>
 using namespace std;
 
-int n;           // Number of elements
-int targetSum;   // Target sum
-int setArray[20];
-int subset[20];
+int n, t;
+int a[20];
+int x[20];
 
-void printSubset(int subset[], int subsetSize) {
+void print(int m) {
     cout << "{ ";
-    for (int i = 0; i < subsetSize; i++) {
-        cout << subset[i] << " ";
+    for (int i = 0; i < m; i++) {
+        cout << x[i] << " ";
     }
     cout << "}" << endl;
 }
 
-void sumOfSubsets(int i, int currentSum, int subsetSize) {
-    if (currentSum == targetSum) {
-        printSubset(subset, subsetSize);
+void solve(int i, int s, int k) {
+    if (s == t) {
+        print(k);
         return;
     }
 
-    if (i == n || currentSum > targetSum) {
+    if (i == n || s > t) {
         return;
     }
 
-    // Include setArray[i]
-    subset[subsetSize] = setArray[i];
-    sumOfSubsets(i + 1, currentSum + setArray[i], subsetSize + 1);
+    // Include a[i]
+    x[k] = a[i];
+    solve(i + 1, s + a[i], k + 1);
 
-    // Exclude setArray[i]
-    sumOfSubsets(i + 1, currentSum, subsetSize);
+    // Exclude a[i]
+    solve(i + 1, s, k);
 }
 
 int main() {
@@ -38,14 +37,14 @@ int main() {
 
     cout << "Enter elements of the set: ";
     for (int i = 0; i < n; i++) {
-        cin >> setArray[i];
+        cin >> a[i];
     }
 
     cout << "Enter target sum: ";
-    cin >> targetSum;
+    cin >> t;
 
-    cout << "\nSubsets that sum to " << targetSum << " are:\n";
-    sumOfSubsets(0, 0, 0);
+    cout << "\nSubsets that sum to " << t << " are:\n";
+    solve(0, 0, 0);
 
     return 0;
 }
