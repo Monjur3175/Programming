@@ -14,16 +14,15 @@ int main()
     int v[n + 1];
     int w[n + 1];
 
-    cout << "Enter the values of items: ";
-    for (int i = 1; i <= n; i++)
-    {
-        cin >> v[i];
-    }
-
     cout << "Enter the weights of items: ";
     for (int i = 1; i <= n; i++)
     {
         cin >> w[i];
+    }
+    cout << "Enter the values of items: ";
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> v[i];
     }
 
     int dp[n + 1][W + 1];
@@ -70,7 +69,7 @@ int main()
             j -= w[i];
         }
         i--;
-    }
+    }    
 
     cout << "Item selection: ";
     for (int k = 1; k <= n; k++)
