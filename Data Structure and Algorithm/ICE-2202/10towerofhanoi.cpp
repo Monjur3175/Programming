@@ -13,6 +13,7 @@ void hanoi(int n, char src, char helper, char dest)
 int main()
 {
     int N;
+    cout<<"Enter The Number of Disk:";
     cin >> N;
     hanoi(N, 'A', 'B', 'C');
 }
