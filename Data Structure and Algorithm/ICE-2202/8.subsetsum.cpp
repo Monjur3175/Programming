@@ -4,22 +4,25 @@ using namespace std;
 int n, t;
 int a[20];
 int x[20];
+bool found = false; // to check if any subset is found
 
 void print(int m) {
     cout << "{ ";
     for (int i = 0; i < m; i++) {
-        cout << x[i] << " ";
+        cout << x[i];
+        if (i < m - 1) cout << ", ";
     }
-    cout << "}" << endl;
+    cout << " }" << endl;
 }
 
 void solve(int i, int s, int k) {
     if (s == t) {
         print(k);
+        found = true;
         return;
     }
 
-    if (i == n || s > t) {
+    if (i >= n || s > t) {
         return;
     }
 
@@ -45,6 +48,9 @@ int main() {
 
     cout << "\nSubsets that sum to " << t << " are:\n";
     solve(0, 0, 0);
+
+    if (!found)
+        cout << "No subset found." << endl;
 
     return 0;
 }
