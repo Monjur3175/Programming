@@ -1,71 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monjur Morshed's Portfolio</title>
+    <title>Monjur Morshed's Portfolio | AI Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="My_Picture.jpg">
-    <link rel="stylesheet" href="print.css" media="print">
-    <style>
-        /* ... (previous styles) */
-        footer {
-            text-align: center;
-            /* Center footer content */
-            padding: 20px;
-            background-color: #001f3f;
-            /* Light background for footer */
-        }
-
-        #print-cv {
-            background-color: #4CAF50;
-            /* Green */
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
 </head>
-
-<body class="home">
+<body class="page-home">
     <nav class="site-nav">
         <div class="nav-container">
-            <a class="brand" href="index.html">Monjur Morshed</a>
-            <button id="nav-toggle" class="nav-toggle" aria-label="Menu"><i class="fas fa-ellipsis-v"></i></button>
+            <a class="brand" href="index.html">
+                <span class="brand-dot"></span>
+                Monjur Morshed
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle light and dark theme" title="Toggle theme" role="switch">
+                    <span class="toggle-track">
+                        <span class="toggle-icon toggle-sun"><i class="fas fa-sun"></i></span>
+                        <span class="toggle-icon toggle-moon"><i class="fas fa-moon"></i></span>
+                        <span class="toggle-thumb"></span>
+                    </span>
+                </button>
+                <button id="nav-toggle" class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </div>
             <div class="menu">
-                <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
-                <a class="active" href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="experience.html">Experience</a>
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="certificates.html">Certificates</a>
-                <a href="contact.html">Contact</a>
+            <a class="active" href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
-    <!-- Particles Background -->
-    <div id="particles"></div>
+
     <header>
         <div class="header-background">
-            <div class="animated-gradient"></div>
-            <div class="floating-elements">
-                <div class="floating-icon code-icon"><i class="fas fa-code"></i></div>
-                <div class="floating-icon laptop-icon"><i class="fas fa-laptop-code"></i></div>
-                <div class="floating-icon brain-icon"><i class="fas fa-brain"></i></div>
+            <div class="cyber-grid-3d"></div>
+            <!-- 3D Holographic AI Core -->
+            <div class="hologram-3d-scene">
+                <div class="hologram-3d-rings">
+                    <div class="holo-ring holo-ring-1"></div>
+                    <div class="holo-ring holo-ring-2"></div>
+                    <div class="holo-ring holo-ring-3"></div>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -73,32 +56,57 @@
                 <img src="My_Picture.jpg" alt="Monjur Morshed">
             </div>
             <div class="header-content">
+                
                 <h1 class="glitch" data-text="Monjur Morshed">Monjur Morshed</h1>
-                <div class="typing-text">IT Executive at NextNode | Competitive Programmer | Web Developer Aspirent
+                <div class="typing-text">AI/ML Researcher | Competitive Programmer | Full-Stack Developer</div>
+                <p class="header-description">Engineering deep learning architectures, robust vision models, and intelligent systems with lasting scientific impact.</p>
+
+                <!-- Innovative AI Terminal Widget -->
+                <div class="neurocore-ai-widget">
+                    <div class="neurocore-header">
+                        <div class="neurocore-title">
+                            <i class="fas fa-microscope"></i> RESEARCH ABSTRACT &amp; PAPER INTELLIGENCE HUD
+                        </div>
+                        <div><i class="fas fa-database"></i> 3 PEER PAPERS LOADED | CLICK TO INSPECT ABSTRACT</div>
+                    </div>
+                    <div class="neurocore-chips">
+                        <button class="neurocore-chip active" data-paper="manifold" onclick="loadPaperAbstract('manifold')">
+                            <i class="fas fa-seedling"></i> 1. Manifold Learning &amp; Lentil Yield
+                        </button>
+                        <button class="neurocore-chip" data-paper="multitask" onclick="loadPaperAbstract('multitask')">
+                            <i class="fas fa-network-wired"></i> 2. Multi-Task CNN (4-in-1 Diagnosis)
+                        </button>
+                        <button class="neurocore-chip" data-paper="openset" onclick="loadPaperAbstract('openset')">
+                            <i class="fas fa-shield-virus"></i> 3. Calibrated Open-Set Recognition
+                        </button>
+                    </div>
+                    <div class="neurocore-screen" id="neurocore-output">
+                        <!-- Populated by loadPaperAbstract() on page load or click -->
+                    </div>
                 </div>
-                <p class="header-description">Passionate about creating innovative solutions through code</p>
-                <div class="tech-skills-showcase">
-                    <div class="skill-tag">C++(OOPS)(DSA)</div>
+
+                <div class="tech-skills-showcase" style="justify-content:center;">
+                    <div class="skill-tag">C++ (OOP + DSA)</div>
                     <div class="skill-tag">Python</div>
-                    <div class="skill-tag">Kotlin</div>
-                    <div class="skill-tag">MERN Stack Web Development</div>
-                    <div class="skill-tag">Problem Solving</div>
+                    <div class="skill-tag">PyTorch &amp; TensorFlow</div>
+                    <div class="skill-tag">React + FastAPI</div>
+                    <div class="skill-tag">Computer Vision</div>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/Monjur3175" target="_blank" class="social-icon">
+                    <a href="https://github.com/Monjur3175" target="_blank" class="social-icon" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank" class="social-icon">
+                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank" class="social-icon" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:monjurmorshedosama75@gmail.com" class="social-icon">
+                    <a href="mailto:monjurmorshedosama75@gmail.com" class="social-icon" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
         </div>
     </header>
-    
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -113,24 +121,25 @@
                 <h3>Quick Links</h3>
                 <nav class="footer-nav">
                     <a href="about.html">About</a>
+                    <a href="research.html">Research</a>
                     <a href="experience.html">Experience</a>
                     <a href="skills.html">Skills</a>
                     <a href="projects.html">Projects</a>
-                    <a href="certificates.html">Certificates</a>                    
+                    <a href="certificates.html">Certificates</a>
                     <a href="contact.html">Contact</a>
                 </nav>
             </div>
             <div class="footer-section connect-section">
                 <h3>Connect With Me</h3>
                 <div class="footer-social">
-                    <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://wa.me/+8801997007988" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/Monjur3175" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/+8801997007988" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Monjur Morshed. All rights reserved.</p>
+            <p>&copy; 2026 Monjur Morshed &bull; Built with AI &amp; Futuristic Engineering.</p>
             <a href="Resume of Monjur Morshed.pdf" download class="btn" target="_blank">
                 <i class="fas fa-download"></i> Download CV
             </a>
@@ -138,5 +147,4 @@
     </footer>
     <script src="script.js"></script>
 </body>
-
 </html>

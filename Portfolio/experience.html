@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - Monjur Morshed</title>
+    <title>Experience - Monjur Morshed | AI Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/x-icon" href="My_Picture.jpg">
 </head>
-
-<body>
+<body class="page-experience">
     <nav class="site-nav">
         <div class="nav-container">
-            <a class="brand" href="index.html">Monjur Morshed</a>
-            <button id="nav-toggle" class="nav-toggle" aria-label="Menu"><i class="fas fa-ellipsis-v"></i></button>
+            <a class="brand" href="index.html">
+                <span class="brand-dot"></span>
+                Monjur Morshed
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle light and dark theme" title="Toggle theme" role="switch">
+                    <span class="toggle-track">
+                        <span class="toggle-icon toggle-sun"><i class="fas fa-sun"></i></span>
+                        <span class="toggle-icon toggle-moon"><i class="fas fa-moon"></i></span>
+                        <span class="toggle-thumb"></span>
+                    </span>
+                </button>
+                <button id="nav-toggle" class="nav-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            </div>
             <div class="menu">
-                <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a class="active" href="experience.html">Experience</a>
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="certificates.html">Certificates</a>
-                <a href="contact.html">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a class="active" href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="contact.html">Contact</a>
             </div>
         </div>
     </nav>
 
-    <div id="particles"></div>
-
     <main class="container">
         <section>
-            <h2>Professional Experience</h2>
-            <div class="card">
-                <h3>IT Executive — NextNode</h3>
-                <p><strong>Rajshahi, Bangladesh (Remote)</strong> | Dec 2024 – Present</p>
-                <ul>
-                    <li>Manage and monitor IT infrastructure and endpoints.</li>
-                    <li>Support software development operations.</li>
-                    <li>Collaborate with cross-functional teams to improve productivity.</li>
-                </ul>
-                <p><a href="https://nextnode.netlify.app/" target="_blank">Visit NextNode Website</a></p>
+            <div class="card" style="text-align:center; padding: 3.5rem 2rem;">
+                <span class="neon-circle-node"></span>
+                <i class="fas fa-brain" style="font-size:3.5rem; color:var(--secondary-color); margin-bottom:1.2rem; display:block; text-shadow:0 0 20px var(--theme-glow);"></i>
+                <h3 style="margin-bottom:0.8rem; font-size:1.5rem;">Pioneering AI Engineering &amp; Research</h3>
+                <p style="color:var(--card-text); max-width:650px; margin:0 auto 1.5rem; font-size:1.05rem;">Focused on university research initiatives, algorithmic problem solving, and building high-performance RAG and machine learning models. Actively open to AI research opportunities, software engineering roles, and collaborative projects.</p>
+                <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+                    <a href="projects.html" class="btn"><i class="fas fa-microchip"></i> Explore AI Projects</a>
+                    <a href="research.html" class="btn" style="background:transparent; color:var(--secondary-color)!important; border:2px solid var(--secondary-color); box-shadow:0 0 15px var(--theme-glow);"><i class="fas fa-book-open"></i> Explore Research Papers</a>
+                </div>
             </div>
         </section>
     </main>
@@ -61,28 +68,30 @@
                 <h3>Quick Links</h3>
                 <nav class="footer-nav">
                     <a href="about.html">About</a>
+                    <a href="research.html">Research</a>
                     <a href="experience.html">Experience</a>
                     <a href="skills.html">Skills</a>
                     <a href="projects.html">Projects</a>
-                    <a href="certificates.html">Certificates</a>                    
+                    <a href="certificates.html">Certificates</a>
                     <a href="contact.html">Contact</a>
                 </nav>
             </div>
             <div class="footer-section connect-section">
                 <h3>Connect With Me</h3>
                 <div class="footer-social">
-                    <a href="https://github.com/Monjur3175" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://wa.me/+8801997007988" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/Monjur3175" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/monjur-morshed-182566291/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://wa.me/+8801997007988" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Monjur Morshed. All rights reserved.</p>
-            
+            <p>&copy; 2026 Monjur Morshed &bull; Built with AI &amp; Futuristic Engineering.</p>
+            <a href="Resume of Monjur Morshed.pdf" download class="btn" target="_blank">
+                <i class="fas fa-download"></i> Download CV
+            </a>
         </div>
     </footer>
     <script src="script.js"></script>
 </body>
-
-</html> 
+</html>
